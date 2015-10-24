@@ -11,10 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023034708) do
+ActiveRecord::Schema.define(version: 20151023231221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text    "body",      null: false
+    t.integer "author_id", null: false
+    t.integer "media_id",  null: false
+  end
+
+  create_table "followers", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followee_id", null: false
+  end
+
+  add_index "followers", ["follower_id", "followee_id"], name: "index_followers_on_follower_id_and_followee_id", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "media_id", null: false
+    t.integer "user_id",  null: false
+  end
+
+  add_index "likes", ["media_id", "user_id"], name: "index_likes_on_media_id_and_user_id", using: :btree
+
+  create_table "media", force: :cascade do |t|
+    t.string  "title",       null: false
+    t.string  "description", null: false
+    t.integer "author_id",   null: false
+  end
+
+  add_index "media", ["author_id"], name: "index_media_on_author_id", using: :btree
+
+  create_table "pictures", force: :cascade do |t|
+    t.text    "url",            null: false
+    t.string  "thumb_url"
+    t.integer "imageable_id"
+    t.string  "imageable_type"
+  end
+
+  add_index "pictures", ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string "username",        null: false

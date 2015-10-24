@@ -5,6 +5,11 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   attr_accessor :password
 
+  has_many(
+  :comments,
+  class: :Comment
+  )
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
   end
