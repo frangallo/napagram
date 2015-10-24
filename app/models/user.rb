@@ -6,9 +6,43 @@ class User < ActiveRecord::Base
   attr_accessor :password
 
   has_many(
-  :comments,
-  class: :Comment
+    :comments,
+    class: :Comment,
+    foreign_key: :id,
+    primary_key: :id,
+    dependent: :destory
   )
+
+  has_one :picture as: :imageable
+
+  has_many(
+    :following,
+    class: :Follower,
+    foreign_key: :follower_id,
+    primary_key: :id,
+  )
+
+  has_many(
+    :followers,
+    class: :Follower,
+    foreign_key: :followee_id,
+    primary_key: :id,
+  )
+
+  has_many(
+    :likes,
+    class: :Like,
+    foreign_key: :user_id,
+    primary_key: :id,
+  )
+
+  has_many(
+    :posts,
+    class: :Media,
+    foreign_key: :author_id,
+    primary_key: :id,
+  )
+
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
