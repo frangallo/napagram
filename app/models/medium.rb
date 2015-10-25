@@ -12,6 +12,13 @@ class Medium < ActiveRecord::Base
   has_one :picture, as: :imageable
 
   has_many(
+    :comments,
+    class_name: :Comment,
+    foreign_key: :media_id,
+    primary_key: :id
+  )
+
+  has_many(
     :likes,
     class_name: :Like,
     foreign_key: :media_id,

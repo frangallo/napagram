@@ -13,14 +13,24 @@ ids = (1..10).to_a
               session_token: names[x],
               password_digest: names[x],
               quote: names[x]})
-  Medium.create({description:names[x],
-                author_id: ids.sample})
-
 end
+
+50.times do |x|
+  Medium.create({description: names.sample,
+                author_id: ids.sample})
+end
+
+50.times do |x|
+    Picture.create({url:"www.napagram.com", imageable_id: x+1, imageable_type: "Medium"})
+end
+
 
 10.times do |x|
   Like.create({media_id: ids.sample, user_id: ids.sample})
+  Picture.create({url: "www.google.com", imageable_id: x+1, imageable_type: "User"})
 end
+
+
 
 25.times do |x|
   rand1 = rand(1..10)
@@ -30,5 +40,5 @@ end
   end
 
   Follower.create({follower_id: rand1, followee_id: rand2})
-  Comment.new({body: "Hello#{x}", author_id: rand1, media_id: rand2 })
+  Comment.create({body: "Hello#{x}", author_id: rand1, media_id: rand2 })
 end
