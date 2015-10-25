@@ -13,8 +13,8 @@ ids = (1..10).to_a
               session_token: names[x],
               password_digest: names[x],
               quote: names[x]})
-  Media.create({description:names[x]},
-                author_id: ids.sample])
+  Medium.create({description:names[x],
+                author_id: ids.sample})
 
 end
 
