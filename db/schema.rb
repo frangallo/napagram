@@ -11,53 +11,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024000938) do
+ActiveRecord::Schema.define(version: 20151025011142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text    "body",      null: false
-    t.integer "author_id", null: false
-    t.integer "media_id",  null: false
+    t.text     "body",       null: false
+    t.integer  "author_id",  null: false
+    t.integer  "media_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "followers", force: :cascade do |t|
-    t.integer "follower_id", null: false
-    t.integer "followee_id", null: false
+    t.integer  "follower_id", null: false
+    t.integer  "followee_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "followers", ["follower_id", "followee_id"], name: "index_followers_on_follower_id_and_followee_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
-    t.integer "media_id", null: false
-    t.integer "user_id",  null: false
+    t.integer  "media_id",   null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "likes", ["media_id", "user_id"], name: "index_likes_on_media_id_and_user_id", using: :btree
 
   create_table "media", force: :cascade do |t|
-    t.string  "title",       null: false
-    t.string  "description", null: false
-    t.integer "author_id",   null: false
+    t.string   "location"
+    t.string   "description", null: false
+    t.integer  "author_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "media", ["author_id"], name: "index_media_on_author_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
-    t.text    "url",            null: false
-    t.string  "thumb_url"
-    t.integer "imageable_id"
-    t.string  "imageable_type"
+    t.text     "url",            null: false
+    t.string   "thumb_url"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "pictures", ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string "username",        null: false
-    t.string "session_token",   null: false
-    t.string "password_digest", null: false
-    t.string "quote",           null: false
+    t.string   "username",        null: false
+    t.string   "session_token",   null: false
+    t.string   "password_digest", null: false
+    t.string   "quote",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree

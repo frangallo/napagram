@@ -7,40 +7,49 @@ class User < ActiveRecord::Base
 
   has_many(
     :comments,
-    class: :Comment,
+    class_name: :Comment,
     foreign_key: :id,
     primary_key: :id,
-    dependent: :destory
+    dependent: :destroy
   )
 
-  has_one :picture as: :imageable
+  has_one :picture, as: :imageable
 
   has_many(
-    :following,
-    class: :Follower,
+    :active,
+    class_name: :Follower,
     foreign_key: :follower_id,
     primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
-    :followers,
-    class: :Follower,
+    :passive,
+    class_name: :Follower,
     foreign_key: :followee_id,
     primary_key: :id,
+    dependent: :destroy
   )
+
+  has_many :following, through: :active, source: :followee
+  has_many :followers, through: :passive, source: :follower
 
   has_many(
     :likes,
-    class: :Like,
+    class_name: :Like,
     foreign_key: :user_id,
     primary_key: :id,
+    dependent: :destroy
   )
+
+  has_many :liked_posts, through: :likes, source: :post
 
   has_many(
     :posts,
-    class: :Media,
+    class_name: :Medium,
     foreign_key: :author_id,
     primary_key: :id,
+    dependent: :destroy
   )
 
 
@@ -52,6 +61,30 @@ class User < ActiveRecord::Base
     user = User.find_by_username(username)
     return nil if user.nil?
     user.is_password?(password) ? user : nil
+  end
+
+  def photo_likes_hash
+    zipped_likes = likes.pluck(:media_id).zip(likes)
+    likes_hash = {}
+
+    zipped_likes.each do |(id, like)|
+      likes_hash[id] = like
+    end
+
+    likes_hash
+  end
+
+  def follow!(user)
+    return if user == self
+    self.active.create!(following_id: user.id)
+  end
+
+  def unfollow!(user)
+    self.active.find_by_following_id(user.id).destroy!
+  end
+
+  def following?(user)
+    self.followees.include?(user)
   end
 
   def is_password?(password)
