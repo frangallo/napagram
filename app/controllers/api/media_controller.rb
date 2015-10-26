@@ -18,6 +18,11 @@ class Api::MediaController < ApplicationController
     end
   end
 
+  def edit
+    @post = Medium.find(params[:id])
+    render json: @post
+  end
+
   def destroy
     @post = Medium.find(params[:id])
     @post.destroy
@@ -26,14 +31,17 @@ class Api::MediaController < ApplicationController
 
   def index
     @posts = current_user.feed
-    render:index
+    render :index
   end
 
   def profile_index
-
+    @posts = Medium.include(:likers, :author, :picture, comments: [:author])find_by_author_id(current_user.id)
+    render :index
   end
 
   def show
+    @post = Medium.include(:likers, :author, :picture, comments: [:author]).find(params[id])
+    render :show
   end
 
   private
