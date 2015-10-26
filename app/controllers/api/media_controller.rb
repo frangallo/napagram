@@ -25,7 +25,12 @@ class Api::MediaController < ApplicationController
   end
 
   def index
-    @post = Medium.find()
+    @posts = current_user.feed
+    render:index
+  end
+
+  def profile_index
+
   end
 
   def show
