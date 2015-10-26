@@ -12,7 +12,7 @@ json.following @user.following do |follow|
 end
 
 json.posts @user.posts do |post|
-  json.partial!('api/media/medium', medium: post)
+  json.partial!('api/media/medium', post: post)
 
   json.comments post.comments do |comment|
     json.partial!('api/comments/comment', comment: comment)
