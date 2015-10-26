@@ -106,5 +106,10 @@ class User < ActiveRecord::Base
     self.session_token ||= self.class.generate_session_token
   end
 
+  def feed
+    following_ids = Follower.select(:followee_id).where(follower_id: self.id).map(&:followee_id)
+    following_ids << self.id
+    Medium.includes(:likers, :picture, :author, comments: [:author]).where(:author_id => following_ids)
+  end
 
 end

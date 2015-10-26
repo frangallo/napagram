@@ -25,6 +25,7 @@ class Api::MediaController < ApplicationController
   end
 
   def index
+    @post = Medium.find()
   end
 
   def show
