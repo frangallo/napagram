@@ -35,7 +35,7 @@ class Api::MediaController < ApplicationController
   end
 
   def profile_index
-    @posts = Medium.include(:likers, :author, :picture, comments: [:author])find_by_author_id(current_user.id)
+    @posts = Medium.include(:likers, :author, :picture, comments: [:author]).find_by_author_id(current_user.id)
     render :index
   end
 
