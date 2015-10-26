@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.new(comment_parms)
     if @comment.save
       render json: @comment
     else
@@ -22,7 +22,7 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :author_id, :media_id)
+    params.require(:comment).permit(:body, :media_id)
   end
 end
 

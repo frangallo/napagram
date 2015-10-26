@@ -1,7 +1,6 @@
 class Api::MediaController < ApplicationController
   def create
-    @post = Medium.new(media_params)
-    @post.author_id = current_user.id
+    @post = current_user.posts.new(media_params)
     if @post.save
       render json: @post
     else
@@ -24,8 +23,8 @@ class Api::MediaController < ApplicationController
   end
 
   def destroy
-    @post = Medium.find(params[:id])
-    @post.destroy
+    @post = current_user.posts.find(params[:id])
+    @post.try(:destroy)
     render json: {}
   end
 
@@ -35,12 +34,12 @@ class Api::MediaController < ApplicationController
   end
 
   def profile_index
-    @posts = Medium.include(:likers, :author, :picture, comments: [:author]).find_by_author_id(current_user.id)
+    @posts = Medium.includes(:likers, :author, :picture, comments: [:author]).find_by_author_id(current_user.id)
     render :index
   end
 
   def show
-    @post = Medium.include(:likers, :author, :picture, comments: [:author]).find(params[id])
+    @post = Medium.includes(:likers, :author, :picture, comments: [:author]).find(params[id])
     render :show
   end
 
