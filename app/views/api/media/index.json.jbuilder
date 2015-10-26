@@ -1,3 +1,3 @@
 json.array! @posts.each do |post|
-  json.partial!('medium', post: post)
+  json.partial!('api/media/medium', post: post)
 end
