@@ -16,6 +16,7 @@ class Api::PicturesController < ApplicationController
   def destroy
     @picture= Picture.find(params[:id])
     @picture.destroy!
+    render json: {}
   end
 
   private

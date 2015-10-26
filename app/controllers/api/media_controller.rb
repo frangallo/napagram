@@ -20,6 +20,8 @@ class Api::MediaController < ApplicationController
 
   def destroy
     @post = Medium.find(params[:id])
+    @post.destroy
+    render json: {}
   end
 
   def index
