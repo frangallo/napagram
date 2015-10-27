@@ -33,7 +33,7 @@ Napagram.Models.User = Backbone.Model.extend({
 
     followers: function () {
       if (!this._followers) {
-        this._followers = new Napagram.Collections.Followers([], { user: this });
+        this._followers = new Napagram.Collections.Users([], { user: this });
       }
 
       return this._followers;
@@ -41,7 +41,7 @@ Napagram.Models.User = Backbone.Model.extend({
 
     following: function () {
       if (!this._following) {
-        this._following = new Napagram.Collections.Following([], { user: this });
+        this._following = new Napagram.Collections.Users([], { user: this });
       }
 
       return this._following;
