@@ -6,6 +6,9 @@ json.followers @user.followers do |follower|
   json.avatar follower.picture
 end
 
+json.followers_count @user.followers.length
+json.follwing_count @user.following.length
+
 json.following @user.following do |follow|
   json.extract! follow, :username, :quote, :created_at
   json.avatar follow.picture

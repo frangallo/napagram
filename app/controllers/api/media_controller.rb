@@ -30,16 +30,28 @@ class Api::MediaController < ApplicationController
 
   def index
     @posts = current_user.feed
-    render :index
+    if logged_in?
+        @likes_hash = current_user.photo_likes_hash
+      else
+        @likes_hash = {}
+      end
+      render :index
+    end
   end
 
   def profile_index
-    @posts = Medium.includes(:likers, :author, :picture, comments: [:author]).find_by_author_id(current_user.id)
+    @posts = Medium.includes(:likes, :likers, :author, :picture, comments: [:author]).where(author_id: params[:author_id])
+    if logged_in?
+        @likes_hash = current_user.photo_likes_hash
+    else
+        @likes_hash = {}
+    end
+
     render :index
   end
 
   def show
-    @post = Medium.includes(:likers, :author, :picture, comments: [:author]).find(params[id])
+    @post = Medium.includes(:likes, :likers, :author, :picture, comments: [:author]).find(params[:id])
     render :show
   end
 
