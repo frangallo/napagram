@@ -1,5 +1,4 @@
-Napagram.Models.User = Backbone.Model.extend({
+Napagram.Models.Picture = Backbone.Model.extend({
   urlRoot: '/api/pictures/',
-
 
 });
