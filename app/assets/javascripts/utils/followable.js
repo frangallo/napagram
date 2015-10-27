@@ -1,7 +1,7 @@
 Napagram.Mixins.Followable = {
   follow: function () {
     if (!this._follow) {
-      this._follow = new LikesDemo.Models.Follower;
+      this._follow = new Napagram.Models.Relationship;
     }
     return this._follow;
   },
