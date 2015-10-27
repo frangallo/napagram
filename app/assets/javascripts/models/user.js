@@ -1,4 +1,4 @@
-Napagram.Models.User = Backbone.Model.extend({
+Napagram.Models.User = Backbone.Model.extend(
   _.extend({}, LikesDemo.Mixins.Likable, {
     urlRoot: "api/users",
 
@@ -72,6 +72,4 @@ Napagram.Models.User = Backbone.Model.extend({
       return response;
     }
   })
-
-
-});
+);

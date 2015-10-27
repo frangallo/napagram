@@ -74,17 +74,15 @@ class User < ActiveRecord::Base
     likes_hash
   end
 
-  def follow!(user)
-    return if user == self
-    self.active.create!(following_id: user.id)
-  end
+  def following_hash
+    zipped_following = active.pluck(:user_id).zip(active)
+    likes_hash = {}
 
-  def unfollow!(user)
-    self.active.find_by_following_id(user.id).destroy!
-  end
+    zipped_following.each do |(user_id, active)|
+      likes_hash[user_id] = active
+    end
 
-  def following?(user)
-    self.followees.include?(user)
+    zipped_following
   end
 
   def is_password?(password)

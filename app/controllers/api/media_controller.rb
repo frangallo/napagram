@@ -52,6 +52,10 @@ class Api::MediaController < ApplicationController
 
   def show
     @post = Medium.includes(:likes, :likers, :author, :picture, comments: [:author]).find(params[:id])
+    @likes_hash = {}
+    if signed_in?
+      @likes_hash[@post.id] = @post.likes.find_by(user_id: current_user.id)
+    end
     render :show
   end
 
