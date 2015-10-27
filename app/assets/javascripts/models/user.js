@@ -17,13 +17,14 @@ Napagram.Models.User = Backbone.Model.extend({
     return this._posts;
   },
 
-  // picture: function (){
-  //   if (!this._picture) {
-  //     this._picture = new Napagram.Collections.Pictures([], { user: this });
-  //   }
-  //
-  //   return this._picture;
-  // },
+  //could be an issue
+  picture: function (){
+    if (!this._picture) {
+      this._picture = new Napagram.Models.Pictures([], { user: this });
+    }
+
+    return this._picture;
+  },
 
   followers: function () {
     if (!this._followers) {
