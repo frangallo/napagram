@@ -1,5 +1,6 @@
 json.extract! @user,  :id, :username, :quote, :created_at
 json.picture @user.picture
+json.following? @following_hash[user.id]
 
 json.followers @user.followers do |follower|
   json.extract! follower, :id, :username, :quote, :created_at
@@ -15,7 +16,7 @@ json.following @user.following do |follow|
 end
 
 json.posts @user.posts do |post|
-  json.partial!('api/media/medium', post: post)
+  json.partial!('api/media/medium', post: post, likes_hash: {})
 
   json.comments post.comments do |comment|
     json.partial!('api/comments/comment', comment: comment)

@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.includes(:picture, :followers, :following, posts: [:likers, :comments, :author, :picture, :likes]).find(params[:id])
     @following_hash = {}
-    if signed_in?
+    if logged_in?
       @following_hash[@user.id] = @user.passive.find_by(user_id: current_user.id)
     end
     render :show
