@@ -1,0 +1,12 @@
+<header id="header"></header>
+<div id="content"></div>
+
+<script>
+  $(function () {
+    Napagram.CURRENT_USER = {
+      username: "<%= current_user.username %>",
+      id: "<%= current_user.id %>"
+    };
+    Napagram.initialize();
+  });
+</script>
