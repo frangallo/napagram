@@ -27,5 +27,3 @@ class Api::FollowersController < ApplicationController
   end
 
 end
-
-end
