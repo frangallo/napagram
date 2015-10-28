@@ -32,11 +32,10 @@ class Api::MediaController < ApplicationController
     @posts = current_user.feed
     if logged_in?
         @likes_hash = current_user.photo_likes_hash
-      else
-        @likes_hash = {}
-      end
-      render :index
+    else
+      @likes_hash = {}
     end
+    render :index
   end
 
   def profile_index
