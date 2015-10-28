@@ -1,4 +1,4 @@
 Napagram.Models.Picture = Backbone.Model.extend({
-  urlRoot: '/api/pictures/',
+  urlRoot: '/api/pictures',
 
 });

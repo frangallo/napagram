@@ -22,7 +22,6 @@ Napagram.Models.User = Backbone.Model.extend(
       return this._posts;
     },
 
-    //could be an issue
     picture: function (){
       if (!this._picture) {
         this._picture = new Napagram.Models.Pictures([], { user: this });
