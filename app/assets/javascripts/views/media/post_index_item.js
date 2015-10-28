@@ -6,7 +6,7 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   initialize: function(){
     this.listenTo(this.collection, "sync remove add", this.render);
     this.renderCommentIndex()
-    this.listenTo(comments, "add", this.addCommentView);
+    this.listenTo(this.model.comments(), "add", this.renderCommentIndex);
     this.listenTo(this.model.like(), "change", this.render);
     this.listenTo(comments, "remove", this.removeCommentView);
     this.listenTo(this.model, "change:num_likes", this.render);
@@ -19,8 +19,9 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   },
 
   renderCommentIndex: function(){
-    var subview = new Napagram.View.CommentsIndex({
-      collection: this.model.comments();
+    console.log(this.model)
+    var subview = new Napagram.Views.CommentsIndex({
+      collection: this.model.comments()
     })
     this.addSubview('.comments', subview);
   },
