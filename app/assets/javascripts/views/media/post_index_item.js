@@ -24,7 +24,7 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   },
 
   addCommentView: function(comment){
-    var subview = new Napagram.Views.CommentShow({
+    var subview = new Napagram.Views.CommentIndexItem({
       model: comment
     })
     this.addSubview('.comments', subview);
