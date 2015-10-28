@@ -1,4 +1,4 @@
-Napagram.Views.PostIndex = Backbone.CompositeView.extend({
+Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   template: JST["media/feed_index"],
 
   initialize: function(){
@@ -12,11 +12,5 @@ Napagram.Views.PostIndex = Backbone.CompositeView.extend({
     return this;
   },
 
-  addPostIndexItemView: function(postIndexItem){
-    var subview = new Wandergram.Views.PostIndexItem({
-      model: postIndexItem
-    });
-    this.addSubview('.posts-index', subview);
-  },
 
 });
