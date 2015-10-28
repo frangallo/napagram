@@ -1,5 +1,5 @@
-Napagram.Views.FeedIndex = Backbone.Views.extend({
-  template: JST["media/feed_index"]
+Napagram.Views.FeedIndex = Backbone.View.extend({
+  template: JST["media/feed_index"],
 
   initialize: function(){
     this.listenTo(this.collection, "sync remove add", this.render);

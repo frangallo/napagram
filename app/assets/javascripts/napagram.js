@@ -3,6 +3,8 @@ window.Napagram = {
   Collections: {},
   Views: {},
   Routers: {},
+  Mixins: {},
+  
   initialize: function() {
 
     console.log("hello from backbone")
@@ -11,7 +13,7 @@ window.Napagram = {
     feedCollection.fetch();
 
     var router = new Napagram.Routers.Router({
-      $rootEl: $("#content")
+      $rootEl: $("#content"),
       userFeed: feedCollection
     });
 

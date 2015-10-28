@@ -2,8 +2,8 @@ Napagram.Routers.Router = Backbone.Router.extend({
   initialize: function(options){
     this.$rootEl = options.$rootEl;
     this.feedCollection = options.userFeed
-    this.usersCollection = new Napagram.Collections.Users();
-    this.usersCollection.fetch();
+    // this.usersCollection = new Napagram.Collections.Users();
+    // this.usersCollection.fetch();
   },
 
   routes: {

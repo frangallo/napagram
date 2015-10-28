@@ -1,6 +1,6 @@
-Zoozer.Collections.Media = Backbone.Collection.extend({
+Napagram.Collections.Media = Backbone.Collection.extend({
   url: 'api/media',
-  model: Napagram.Models.Medium
+  model: Napagram.Models.Medium,
 
   getOrFetch: function(id){
     var collection = this;
