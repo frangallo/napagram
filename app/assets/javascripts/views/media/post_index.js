@@ -14,7 +14,7 @@ Napagram.Views.PostIndex = Backbone.CompositeView.extend({
   },
 
   addPostIndexItemView: function(postIndexItem){
-    var subview = new Wandergram.Views.PostIndexItem({
+    var subview = new Napagram.Views.PostIndexItem({
       model: postIndexItem
     });
     this.addSubview('.posts-index', subview);
