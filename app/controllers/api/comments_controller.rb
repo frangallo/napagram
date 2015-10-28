@@ -10,7 +10,7 @@ class Api::CommentsController < ApplicationController
 
   def show
     @comment= Comment.find(params[:id])
-    render json: @comment
+    render :show
   end
 
   def destroy
@@ -19,11 +19,14 @@ class Api::CommentsController < ApplicationController
     render json: {}
   end
 
+  def index
+    @comments = Comment.all
+    render :index
+  end
+
   private
 
   def comment_params
     params.require(:comment).permit(:body, :media_id)
   end
-end
-
 end

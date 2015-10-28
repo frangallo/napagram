@@ -8,7 +8,7 @@ Napagram.Models.Medium = Backbone.Model.extend(
 
     comments: function () {
       if (!this._comments) {
-        this._comments = new Napagram.Collections.Comments([], { author: this });
+        this._comments = new Napagram.Collections.Comments([], { post: this });
       }
 
       return this._comments;

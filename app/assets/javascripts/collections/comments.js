@@ -1,6 +1,6 @@
 Napagram.Collections.Comments = Backbone.Collection.extend({
-  url: 'api/commments',
-  model: Napagram.Models.commment,
+  url: 'api/comments',
+  model: Napagram.Models.Commment,
 
   getOrFetch: function(id){
     var collection = this;
