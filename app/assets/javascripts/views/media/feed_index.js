@@ -1,4 +1,4 @@
-Napagram.Views.FeedIndex = Backbone.View.extend({
+Napagram.Views.PostIndex = Backbone.CompositeView.extend({
   template: JST["media/feed_index"],
 
   initialize: function(){
