@@ -1,4 +1,4 @@
-json.extract! post, :location, :description, :author_id, :created_at
+json.extract! post, :id, :location, :description, :author_id, :created_at
 json.picture post.picture
 json.author post.author
 json.num_likes post.likes.length

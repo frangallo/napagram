@@ -1,6 +1,6 @@
 Napagram.Views.CommentIndexItem = Backbone.View.extend({
-  tagName: 'li'
-  template: JST["media/comment_index"],
+  tagName: 'li',
+  template: JST["comments/comment_index_item"],
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);

@@ -21,9 +21,10 @@ Napagram.Models.Medium = Backbone.Model.extend(
       }
 
       if (response.like) {
-        this.like().set(response.like, { parse: true });
+        this.like().set(response.like);
         delete response.like;
       }
-    },
+      return response
+    }
   })
 );

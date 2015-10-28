@@ -11,6 +11,7 @@ Napagram.Routers.Router = Backbone.Router.extend({
   },
 
   postIndex: function(){
+    console.log(this.feedCollection.length)
     var feedIndexView = new Napagram.Views.PostIndex({
       collection: this.feedCollection
     });

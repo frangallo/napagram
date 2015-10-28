@@ -9,7 +9,7 @@ Napagram.Collections.Comments = Backbone.Collection.extend({
     if (!comment){
       comment = new Napagram.Models.Comment({ id: id });
       collection.add(comment);
-      user.fetch({
+      comment.fetch({
         error: function(){ collection.remove(comment); }
       })
     } else {

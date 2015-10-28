@@ -1,12 +1,13 @@
 Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
-  template: JST["media/comment_index"],
+  tagName: "li",
+  template: JST["media/post_index_item"],
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
-    this.renderComments();
-    this.listenTo(this.model.comments(), "add", this.addCommentView);
-    this.listenTo(this.model.like(), "change", this.render);
-    this.listenTo(comments, "remove", this.removeCommentView);
+    // this.renderComments();
+    // this.listenTo(this.model.comments(), "add", this.addCommentView);
+    // this.listenTo(this.model.like(), "change", this.render);
+    // this.listenTo(this.model.comments(), "remove", this.removeCommentView);
     this.listenTo(this.model, "change:num_likes", this.render);
   },
 
@@ -16,22 +17,22 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
     return this;
   },
 
-  renderComments: function(){
-    var comments = this.model.comments();
-    comments.each(function(comment){
-      this.addCommentView(comment);
-    }.bind(this));
-  },
-
-  addCommentView: function(comment){
-    var subview = new Napagram.Views.CommentIndexItem({
-      model: comment
-    })
-    this.addSubview('.comments', subview);
-  },
-
-  removeCommentView: function(comment){
-    this.removeModelSubview('.comments', comment);
-  },
+  // renderComments: function(){
+  //   var comments = this.model.comments();
+  //   comments.each(function(comment){
+  //     addCommentView(comment);
+  //   }.bind(this));
+  // },
+  //
+  // addCommentView: function(comment){
+  //   var subview = new Napagram.Views.CommentShow({
+  //     model: comment
+  //   })
+  //   this.addSubview('.comments', subview);
+  // },
+  //
+  // removeCommentView: function(comment){
+  //   this.removeModelSubview('.comments', comment);
+  // },
 
 });

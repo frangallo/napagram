@@ -9,7 +9,7 @@ Napagram.Collections.UserFeed = Backbone.Collection.extend({
     if (!medium){
       medium = new Napagram.Models.Medium({ id: id });
       collection.add(medium);
-      user.fetch({
+      medium.fetch({
         error: function(){ collection.remove(medium); }
       })
     } else {
