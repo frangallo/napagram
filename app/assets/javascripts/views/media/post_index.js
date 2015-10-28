@@ -1,8 +1,9 @@
 Napagram.Views.PostIndex = Backbone.CompositeView.extend({
-  template: JST["media/feed_index"],
+  template: JST["media/post_index"],
 
   initialize: function(){
-    this.listenTo(this.collection, "sync remove add", this.render);
+    this.listenTo(this.collection, "add", this.addPostIndexItemView);
+    this.listenTo(this.collection, "remove", this.removePostIndexItemView);
     this.collection.each(this.addPostIndexItemView.bind(this));
   },
 
@@ -17,6 +18,10 @@ Napagram.Views.PostIndex = Backbone.CompositeView.extend({
       model: postIndexItem
     });
     this.addSubview('.posts-index', subview);
+  },
+
+  removePostIndexItemView: function(postIndexItem){
+    this.removeModelSubview('.posts-index', postIndexItem);
   },
 
 });

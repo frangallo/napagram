@@ -1,5 +1,7 @@
 Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
-  template: JST["media/feed_index"],
+  tagName: 'li',
+  template: JST["media/post_index_item"],
+
 
   initialize: function(){
     this.listenTo(this.collection, "sync remove add", this.render);
