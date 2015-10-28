@@ -18,12 +18,11 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   },
 
   renderComments: function(){
-
     var comments = this.model.comments();
-    console.log(comments)
+    var self = this
     comments.each(function(comment){
-      addCommentView(comment);
-    }.bind(this));
+      self.addCommentView(comment);
+    });
   },
 
   addCommentView: function(comment){

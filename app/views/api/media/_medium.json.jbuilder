@@ -7,3 +7,6 @@ json.likers post.likers do |liker|
   json.extract! liker, :username, :quote, :created_at
   json.avatar liker.picture
 end
+json.comments post.comments do |comment|
+  json.partial!('api/comments/comment', comment: comment)
+end
