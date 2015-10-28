@@ -7,7 +7,7 @@ Napagram.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "" : "postIndex"
+    "" : "postIndex",
     "users/:id" : "userShow"
   },
 
@@ -21,7 +21,7 @@ Napagram.Routers.Router = Backbone.Router.extend({
   userShow: function(id){
     var user = this.usersCollection.getOrFetch(id);
     var userShowView = new Napagram.Views.UserShow({
-      model: this.user
+      model: user
     });
     this._swapView(userShowView);
   },

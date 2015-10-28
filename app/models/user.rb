@@ -75,11 +75,11 @@ class User < ActiveRecord::Base
   end
 
   def following_hash
-    zipped_following = active.pluck(:user_id).zip(active)
+    zipped_following = active.pluck(:follower_id).zip(active)
     likes_hash = {}
 
-    zipped_following.each do |(user_id, active)|
-      likes_hash[user_id] = active
+    zipped_following.each do |(follower_id, active)|
+      likes_hash[follower_id] = active
     end
 
     zipped_following

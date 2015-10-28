@@ -15,6 +15,7 @@ json.following @user.following do |follow|
   json.avatar follow.picture
 end
 
+json.total_posts @user.posts.length
 json.posts @user.posts do |post|
   json.partial!('api/media/medium', post: post, likes_hash: {})
 

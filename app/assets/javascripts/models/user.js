@@ -16,7 +16,7 @@ Napagram.Models.User = Backbone.Model.extend(
 
     posts: function (){
       if (!this._posts) {
-        this._posts = new Napagram.Collections.Posts([], { user: this });
+        this._posts = new Napagram.Collections.Media([], { user: this });
       }
 
       return this._posts;
