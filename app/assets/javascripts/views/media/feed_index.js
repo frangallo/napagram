@@ -1,21 +1,13 @@
 Napagram.Views.FeedIndex = Backbone.Views.extend({
-  url: 'api/media/feed',
-  model: Napagram.Models.Medium
+  template: JST["media/feed_index"]
 
-  getOrFetch: function(id){
-    var collection = this;
-    var medium = collection.get(id);
+  initialize: function(){
+    this.listenTo(this.collection, "sync remove add", this.render);
+  },
 
-    if (!medium){
-      medium = new Napagram.Models.Medium({ id: id });
-      collection.add(medium);
-      user.fetch({
-        error: function(){ collection.remove(medium); }
-      })
-    } else {
-      medium.fetch();
-    }
-    return medium;
+  render: function(){
+    this.$el.html(this.template({posts: this.collection}))
+    return this;
   },
 
 });
