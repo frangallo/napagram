@@ -28,7 +28,7 @@ class Api::MediaController < ApplicationController
     render json: {}
   end
 
-  def index
+  def feed
     @posts = current_user.feed
     if logged_in?
         @likes_hash = current_user.photo_likes_hash

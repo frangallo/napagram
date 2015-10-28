@@ -1,7 +1,7 @@
 Napagram.Mixins.Likable = {
   like: function () {
     if (!this._like) {
-      this._like = new LikesDemo.Models.Like;
+      this._like = new Napagram.Models.Like;
     }
     return this._like;
   },

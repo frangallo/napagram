@@ -1,5 +1,5 @@
 Napagram.Models.Media = Backbone.Model.extend(
-  _.extend({}, LikesDemo.Mixins.Likable, {
+  _.extend({}, Napagram.Mixins.Likable, {
     urlRoot: "api/media",
 
     likableOptions: {

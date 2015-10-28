@@ -1,5 +1,5 @@
 Napagram.Models.User = Backbone.Model.extend(
-  _.extend({}, LikesDemo.Mixins.Likable, {
+  _.extend({}, Napagram.Mixins.Followable, {
     urlRoot: "api/users",
 
     followableOptions: {
