@@ -1,7 +1,7 @@
 Napagram.Routers.Router = Backbone.Router.extend({
   initialize: function(options){
     this.$rootEl = options.$rootEl;
-    this.postCollection = options.postCollection
+    this.feedCollection = options.userFeed
     this.usersCollection = new Napagram.Collections.Users();
     this.usersCollection.fetch();
   },
@@ -12,7 +12,7 @@ Napagram.Routers.Router = Backbone.Router.extend({
 
   feedIndex: function(){
     var feedIndexView = new Napagram.Views.FeedIndex({
-      collection: this.postCollection
+      collection: this.feedCollection
     });
     this._swapView(feedIndexView);
   },
