@@ -7,14 +7,14 @@ Napagram.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "" : "feed_show"
+    "" : "feedIndex"
   },
 
-  feed_show: function(){
-    var feedShowView = new Napagram.Views.FeedShow({
+  feedIndex: function(){
+    var feedIndexView = new Napagram.Views.FeedIndex({
       collection: this.postCollection
     });
-    this._swapView(feedShowView);
+    this._swapView(feedIndexView);
   },
 
   _swapView: function (view) {

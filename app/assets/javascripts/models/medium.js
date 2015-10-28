@@ -1,4 +1,4 @@
-Napagram.Models.Media = Backbone.Model.extend(
+Napagram.Models.Medium = Backbone.Model.extend(
   _.extend({}, Napagram.Mixins.Likable, {
     urlRoot: "api/media",
 
