@@ -8,7 +8,7 @@ json.followers @user.followers do |follower|
 end
 
 json.followers_count @user.followers.length
-json.follwing_count @user.following.length
+json.following_count @user.following.length
 
 json.following @user.following do |follow|
   json.extract! follow, :id, :username, :quote, :created_at

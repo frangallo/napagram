@@ -1,6 +1,7 @@
 <h1><%= user.escape("username") %></h1>
 <p><%= user.escape("quote") %></p>
-<p><%= user.escape("followers_count") %></p>
-<p><%= user.escape("following_count") %></p>
-<p><%= user.escape("total_posts") %></p>
+<p>Followers: <%= user.escape("followers_count") %></p>
+<p>Following: <%= user.escape("following_count") %></p>
+<p>Posts: <%= user.escape("total_posts") %></p>
+
 <div class=".user-post"></div>
