@@ -1,12 +1,10 @@
 Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
-  tagName: 'li',
-  template: JST["media/post_index_item"],
-
+  template: JST["media/comment_index"],
 
   initialize: function(){
-    this.listenTo(this.collection, "sync remove add", this.render);
-    this.renderCommentIndex()
-    this.listenTo(this.model.comments(), "add", this.renderCommentIndex);
+    this.listenTo(this.model, "sync", this.render);
+    this.renderComments();
+    this.listenTo(this.model.comments(), "add", this.addCommentView);
     this.listenTo(this.model.like(), "change", this.render);
     this.listenTo(comments, "remove", this.removeCommentView);
     this.listenTo(this.model, "change:num_likes", this.render);
@@ -18,13 +16,22 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
     return this;
   },
 
-  renderCommentIndex: function(){
-    console.log(this.model)
-    var subview = new Napagram.Views.CommentsIndex({
-      collection: this.model.comments()
+  renderComments: function(){
+    var comments = this.model.comments();
+    comments.each(function(comment){
+      this.addCommentView(comment);
+    }.bind(this));
+  },
+
+  addCommentView: function(comment){
+    var subview = new Napagram.Views.CommentShow({
+      model: comment
     })
     this.addSubview('.comments', subview);
   },
 
+  removeCommentView: function(comment){
+    this.removeModelSubview('.comments', comment);
+  },
 
 });
