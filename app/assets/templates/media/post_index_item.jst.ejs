@@ -1,5 +1,46 @@
-<h2><%= post.escape('description') %></h2>
+<!-- <h2><%= post.escape('description') %></h2>
 <img src="<%= picture.escape('url')%>" alt="" />
 <h4><%= post.escape('num_likes') %> likes</h4>
 <h4><a href="#users/<%= author.escape('id')%>" ><%= author.escape('username') %></a></h4>
 <div class="comments"></div>
+ -->
+
+<div class="panel panel-default">
+
+    <div class="panel-heading group">
+      <div class="prof-pic">
+          <img src="https://avatars3.githubusercontent.com/u/10661144?v=3&s=460" alt="Profile Picture" />
+      </div>
+      <div class="name-location">
+        <a href="#users/<%= author.escape("id") %>"><%= author.escape("username") %></a><br>
+        <%= post.escape("location") %>
+      </div>
+    </div>
+
+    <div class="image-wrapper">
+      <div class="post-image" data-post-id="<%= post.get("id")%>">
+        <img src="<%= picture.escape('url')%>" alt="" />
+      </div>
+    </div>
+
+  <div class="panel-footer">
+    <div class="num-likes">
+    <%= post.escape('num_likes') %> likes
+    </div>
+    <div class="caption">
+      <% if(post.escape("description")) { %>
+        <a href="#/users/<%= author.escape("id") %>"><%= author.escape('username') %></a> <%= post.escape("description") %>
+        <% }%>
+    </div>
+    <div class="comments-container">
+    </div>
+    <div class="separator long-separator">
+
+    </div>
+      <div class="like-comments group">
+        <form class="new-comment-form">
+          <input type="text" class="comment-text" name="description" placeholder="Add a comment...">
+        </form>
+      </div>
+  </div>
+</div>
