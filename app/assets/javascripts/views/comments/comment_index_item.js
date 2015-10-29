@@ -7,7 +7,8 @@ Napagram.Views.CommentIndexItem = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html(this.template({comment: this.model}));
+    this.$el.html(this.template({comment: this.model,
+                                 author: this.model.author()}));
     return this;
   },
 

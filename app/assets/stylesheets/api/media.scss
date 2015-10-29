@@ -6,6 +6,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.posts-index{
+  margin: 0 auto;
+}
 .time {
   float: right;
   color: rgb(165, 167, 170);
@@ -14,12 +17,21 @@
   float: left;
 }
 
+.name-location{
+  margin-top: 8px;
+}
+
 .panel {
   margin-bottom: 0px;
 }
 
-.posts-index > a {
+a:hover {
+    color: #0d3c5f;
+}
 
+.posts-index a {
+  color: #125688;
+  font-weight: 500;
 }
 
 .posts-index{
@@ -38,21 +50,6 @@
   margin-right: 15px;
   width: 30px;
   height: 30px;
-}
-
-
-#map-container {
-  border-right: 2px solid gray;
-  padding: 0px;
-  height: 100%;
-  position: fixed;
-}
-
-#map-canvas {
-  height: 100%;
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
 }
 
 .panel-heading img {
@@ -94,11 +91,6 @@
   outline: 0;
 }
 
-.posts-container {
-  width: 542px;
-  margin: 0 auto;
-}
-
 .inTheIndex {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -119,7 +111,6 @@
   background-color: white;
 }
 .comment-text {
-  float: left;
   width: 460px;
   height: 44px;
   border: none;
@@ -143,11 +134,6 @@
   color: white;
 }
 
-.start-tour-button:hover {
-  background-color: #0d3c5f;
-  border: 1px solid white;
-  color: white;
-}
 
 .btn-default.disable-panning:active, .btn-default.disable-panning:focus, .btn-default.disable-panning:visited, .btn-default.disable-panning:active:focus, .start-tour-button:active, .start-tour-button:focus, .start-tour-button:visited, .btn-default.disable-panning:active:focus  {
   background-color: #0d3c5f;

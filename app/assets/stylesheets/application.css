@@ -14,13 +14,20 @@
  *= require_self
  *= require bootstrap
  */
+ body, button, input, textarea {
+     font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+ }
 
- ul
- {
+ ul{
      list-style-type: none;
  }
 
- .panel-default > .panel-heading, .panel-default > .panel-footer {
+ .panel-heading {
    background-color: white;
    height: 60px;
+ }
+
+ div.panel-footer {
+   background-color: white;
+   height: auto;
  }

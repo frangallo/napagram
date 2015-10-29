@@ -1,10 +1,3 @@
-<!-- <h2><%= post.escape('description') %></h2>
-<img src="<%= picture.escape('url')%>" alt="" />
-<h4><%= post.escape('num_likes') %> likes</h4>
-<h4><a href="#users/<%= author.escape('id')%>" ><%= author.escape('username') %></a></h4>
-<div class="comments"></div>
- -->
-
 <div class="panel panel-default">
 
     <div class="panel-heading group">
@@ -32,15 +25,16 @@
         <a href="#/users/<%= author.escape("id") %>"><%= author.escape('username') %></a> <%= post.escape("description") %>
         <% }%>
     </div>
-    <div class="comments-container">
+
+    <div class="comments">
     </div>
     <div class="separator long-separator">
 
     </div>
-      <div class="like-comments group">
-        <form class="new-comment-form">
-          <input type="text" class="comment-text" name="description" placeholder="Add a comment...">
-        </form>
-      </div>
+    <div class="like-comments group">
+      <form class="new-comment-form">
+        <input type="text" class="comment-text" name="description" placeholder="Add a comment...">
+      </form>
+    </div>
   </div>
 </div>
