@@ -18,8 +18,18 @@
   margin-bottom: 0px;
 }
 
-.panel-default > .panel-heading, .panel-default > .panel-footer {
-  background-color: white;
+.posts-index > a {
+
+}
+
+.posts-index{
+  width: 582px
+}
+
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: white;
+    border-color: #ddd;
 }
 
 .panel-heading .prof-pic {
