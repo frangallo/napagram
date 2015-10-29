@@ -5,7 +5,28 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+pics = ["http://i.imgur.com/B9CLiIg.png",
+        "http://i.imgur.com/rdBvisz.png",
+        "http://i.imgur.com/bOnE3sS.png",
+        "http://i.imgur.com/4O7272w.png",
+        "http://i.imgur.com/4O7272w.png",
+        "http://i.imgur.com/l6WWdz4.png",
+        "http://i.imgur.com/5Iqr6a6.png",
+        "http://i.imgur.com/VjIPzNe.png",
+        "http://i.imgur.com/Wr20F01.png",
+        "http://i.imgur.com/bEiI2lt.png",
+        "http://i.imgur.com/ELMf49L.png",
+        "http://i.imgur.com/3OdpWna.png",
+        "http://i.imgur.com/E3ZftJ9.png",
+        "http://i.imgur.com/LfS9ATC.png",
+        "http://i.imgur.com/ibPxPeb.png",
+        "http://i.imgur.com/TyqNomc.png",
+        "http://i.imgur.com/YJsFOVo.png",
+        "http://i.imgur.com/0RWKf4x.png",
+        "http://i.imgur.com/GkFCmOl.png",
+        "http://i.imgur.com/j54T6IZ.png",
+        "http://i.imgur.com/He8b8YX.png"]
+        
 names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren", "laura", "megan"]
 ids = (1..10).to_a
 10.times do |x|
@@ -21,7 +42,7 @@ end
 end
 
 50.times do |x|
-    Picture.create({url:"www.napagram.com", imageable_id: x+1, imageable_type: "Medium"})
+    Picture.create({url:pics.sample, imageable_id: x+1, imageable_type: "Medium"})
 end
 
 
