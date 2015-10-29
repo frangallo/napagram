@@ -1,4 +1,5 @@
 <h2><%= post.escape('description') %></h2>
-<h4><%= post.escape('num_likes') %></h4>
+<img src="<%= picture.escape('url')%>" alt="" />
+<h4><%= post.escape('num_likes') %> likes</h4>
 <h4><a href="#users/<%= author.escape('id')%>" ><%= author.escape('username') %></a></h4>
 <div class="comments"></div>
