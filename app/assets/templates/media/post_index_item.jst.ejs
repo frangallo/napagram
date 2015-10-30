@@ -32,6 +32,11 @@
 
     </div>
     <div class="like-comments group">
+      <% if post.escape("like") %>
+        <div class="heart-image" style="background-image: url(Images/liked-heart.png)"></div>
+      <% } else { %>
+        <div class="heart-image" style="background-image: url(Images/unliked-heart.png)"></div>
+      <% } %>
       <form class="new-comment-form">
         <input type="text" class="comment-text" name="description" placeholder="Add a comment...">
       </form>
