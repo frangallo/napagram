@@ -33,10 +33,10 @@
     </div>
     <div class="like-comments group">
       <% console.log((post.escape("like"))) %>
-      <% if (post.escape("like") == true) { %>
-        <div class="heart-image" style="background-image: url(http://i.imgur.com/7Wcss6M.png)"></div>
-      <% } else { %>
+      <% if (post.like().isNew()) { %>
         <div class="heart-image" style="background-image: url(http://i.imgur.com/FaUHzc7.png)"></div>
+      <% } else { %>
+        <div class="heart-image" style="background-image: url(http://i.imgur.com/7Wcss6M.png)"></div>
       <% } %>
       <form class="new-comment-form">
         <input type="text" class="comment-text" name="description" placeholder="Add a comment...">

@@ -2,6 +2,10 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   tagName: "li",
   template: JST["media/post_index_item"],
 
+  events: {
+    "click .heart-image" : 'toggleLike'
+  },
+
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
     this.renderComments();
@@ -39,5 +43,9 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   removeCommentView: function(comment){
     this.removeModelSubview('.comments', comment);
   },
+
+  toggleLike: function(event){
+    this.model.toggleLike()
+  }
 
 });
