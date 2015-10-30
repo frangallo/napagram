@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   validates :body, :author_id, :media_id, presence: true
-  default_scope {order('created_at DESC')}
+  default_scope {order('created_at ASC')}
 
   belongs_to(
     :author,
