@@ -1,0 +1,32 @@
+.logo {
+  width: 130px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-right: 52px;
+ }
+
+.main-header{
+  margin: 0 auto;
+  max-width: 616px;
+}
+
+.navbar-inverse {
+  background-color: white;
+  border-color: white);
+}
+
+#srch-term{
+  width: 200px;
+}
+
+.input-group{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.nav-user{
+  display: inline-block;
+  float: right;
+  padding-top: 29px;
+  color: #428bca;
+}
