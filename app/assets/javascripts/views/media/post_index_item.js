@@ -3,7 +3,8 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   template: JST["media/post_index_item"],
 
   events: {
-    "click .heart-image" : 'toggleLike'
+    "click .heart-image" : 'toggleLike',
+    "submit .new-comment-form" : "submitComment"
   },
 
   initialize: function(){
@@ -46,6 +47,20 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
 
   toggleLike: function(event){
     this.model.toggleLike()
+  },
+
+  submitComment: function(event){
+    event.preventDefault();
+    var body = this.$(".comment-text").val();
+    var newComment = new Napagram.Models.Comment();
+    var id = this.model.get("id");
+    var self = this;
+    newComment.set({body: body, media_id: id})
+    newComment.save({}, {
+      success: function(){
+        self.model.comments().add(newComment, {merge: true})
+      }
+    })
   }
 
 });

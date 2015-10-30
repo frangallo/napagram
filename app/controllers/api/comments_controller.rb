@@ -1,8 +1,10 @@
 class Api::CommentsController < ApplicationController
   def create
-    @comment = current_user.comments.new(comment_parms)
+    @comment = Comment.new(comment_params)
+    @comment.author_id = current_user.id
+    p @comment
     if @comment.save
-      render json: @comment
+      render :show
     else
       render json: {message: 'failure'}, status: 422
     end
