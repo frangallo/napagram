@@ -51,7 +51,8 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
 
   submitComment: function(event){
     event.preventDefault();
-    var body = this.$(".comment-text").val();
+    var $input = this.$(".comment-text")
+    var body = $input.val();
     var newComment = new Napagram.Models.Comment();
     var id = this.model.get("id");
     var self = this;
@@ -61,6 +62,7 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
         self.model.comments().add(newComment, {merge: true})
       }
     })
+    $input.val("");
   }
 
 });
