@@ -1,8 +1,8 @@
 .logo {
-  width: 130px;
+  width: 125px;
   padding-top: 15px;
   padding-bottom: 15px;
-  margin-right: 52px;
+  margin-right: 28px;
  }
 
 .main-header{
@@ -36,11 +36,10 @@
   font-size: large;
 }
 
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('/fonts/glyphicons-halflings-regular.eot');
-  src: url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-  url('/fonts/glyphicons-halflings-regular.woff') format('woff'),
-  url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
-  url('/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+.glyphicon.glyphicon-camera {
+  font-size: 35px;
+  float: right;
+  margin-top: -59px;
+  padding-right: 36px;
+  color: #23527c;
 }
