@@ -8,7 +8,8 @@ Napagram.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "" : "postIndex",
-    "users/:id" : "userShow"
+    "users/:id" : "userShow",
+    "upload" : "uploadPost"
   },
 
   postIndex: function(){
@@ -24,6 +25,13 @@ Napagram.Routers.Router = Backbone.Router.extend({
       model: user
     });
     this._swapView(userShowView);
+  },
+
+  uploadPost: function(){
+    var uploadPostView = new Napagram.Views.PostForm({
+      model: new Napagram.Models.Medium()
+    });
+    this._swapView(uploadPostView);
   },
 
   _swapView: function (view) {
