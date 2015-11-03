@@ -4,7 +4,7 @@ Napagram.Views.PostForm= Backbone.CompositeView.extend({
   events: {
     "click .photo-upload" : "uploadPhoto",
     "click .filters" : "changePhoto",
-    "click .create-post" "submitPost"
+    "click .create-post" : "submitPost"
   },
 
   initialize: function(){
@@ -12,6 +12,7 @@ Napagram.Views.PostForm= Backbone.CompositeView.extend({
     this.image ="";
     this.url = "";
     this.thumbURL = "";
+    this.picture = new Napagram.Models.Picture();
   },
 
   render: function(){
@@ -26,23 +27,23 @@ Napagram.Views.PostForm= Backbone.CompositeView.extend({
       var data = result[0];
       var image = data.public_id + "." + data.format;
       self.image = image;
-      this.thumbURL = self.baseURL + "c_scale,w_300/" + image;
-      this.url = self.baseURL + "c_scale,w_600/" + image;
+      self.thumbURL = self.baseURL + "c_scale,w_300/" + image;
+      self.url = self.baseURL + "c_scale,w_600/" + image;
 
       $('.filters').append("<div class=\"original btn btn-default\">Original</button>");
       $('.filters').append("<button class=\"sepia btn btn-default\">Sepia</button>");
       $('.filters').append("<button class=\"oil_paint btn btn-default\">Oil Paint</button>");
       $('.filters').append("<button class=\"saturation btn btn-default\">Saturate</button>");
       $('.filters').append("<button class=\"grayscale btn btn-default\">Grayscale</button>");
-      $('.post-img-preview img').attr('src', this.thumbURL);
+      $('.post-img-preview img').attr('src', self.thumbURL);
     });
   },
 
   changePhoto: function(event){
     var style = event.target.className.split(" ")[0]
       if (style === "original"){
-        this.thumbURL = self.baseURL + "c_scale,w_300/" + image;
-        this.url = self.baseURL + "c_scale,w_600/" + image;
+        this.thumbURL = this.baseURL + "c_scale,w_300/" + this.image;
+        this.url = this.baseURL + "c_scale,w_600/" + this.image;
       } else {
         this.thumbURL = this.baseURL + "e_" + style + ",c_scale,w_300/" + this.image;
         this.url = this.baseURL + "e_" + style + ",c_scale,w_600/" + this.image;
@@ -53,6 +54,29 @@ Napagram.Views.PostForm= Backbone.CompositeView.extend({
 
   submitPost: function(event){
     event.preventDefault();
-  }
+    var description = this.$('.form-control').val();
+    var self = this;
+    this.picture.set({url: this.url, thumb_url: this.thumbURL, imageable_type: "Medium"})
+    this.model.set({description: description})
+    this.model.save({}, {
+      success: function(){
+        self.collection.add(self.model, {at: 0});
+        self.picture.set({imageable_id: self.model.get("id")})
+        self.picture.save({}, {
+          success: function(){
+            self.model.set_picture(self.picture);
+          },
+          error: function(){
+            console.log("error")
+          }
+        });
+        Backbone.history.navigate("", {trigger: true});
+      },
+      error: function(){
+        console.log("error")
+      }
+    });
+
+  },
 
 });

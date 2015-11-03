@@ -2,7 +2,7 @@ class Api::PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     if @picture.save
-      render json: @picture
+      render :show
     else
       render json: {message: 'failure'}, status: 422
     end
@@ -10,7 +10,7 @@ class Api::PicturesController < ApplicationController
 
   def show
     @picture= Picture.find(params[:id])
-    render json: @picture
+    render :show
   end
 
   def destroy

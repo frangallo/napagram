@@ -29,7 +29,8 @@ Napagram.Routers.Router = Backbone.Router.extend({
 
   uploadPost: function(){
     var uploadPostView = new Napagram.Views.PostForm({
-      model: new Napagram.Models.Medium()
+      model: new Napagram.Models.Medium(),
+      collection: this.feedCollection
     });
     this._swapView(uploadPostView);
   },

@@ -1,8 +1,13 @@
 class Api::MediaController < ApplicationController
   def create
-    @post = current_user.posts.new(media_params)
+    @post = Medium.new(media_params)
+    @post.author_id = current_user.id
     if @post.save
-      render json: @post
+      @likes_hash = {}
+      if logged_in?
+        @likes_hash[@post.id] = @post.likes.find_by(user_id: current_user.id)
+      end
+      render :show
     else
       render json: @post.errors.full_messages, status: :unprocessable_entity
     end
@@ -11,7 +16,11 @@ class Api::MediaController < ApplicationController
   def update
     @post = Medium.find(params[:id])
     if @post.update(media_params)
-      render json: @post
+      @likes_hash = {}
+      if logged_in?
+        @likes_hash[@post.id] = @post.likes.find_by(user_id: current_user.id)
+      end
+      render :show
     else
       render json: @post.errors.full_messages, status: :unprocessable_entity
     end
@@ -61,7 +70,7 @@ class Api::MediaController < ApplicationController
   private
 
   def media_params
-    params.require(:media).permit(:location, :description)
+    params.require(:medium).permit(:description)
   end
 
 end

@@ -1,6 +1,6 @@
 class Medium < ActiveRecord::Base
   validates :description, :author_id, presence: true
-  default_scope  {order('created_at ASC')}
+  default_scope  {order('created_at DESC')}
 
   belongs_to(
     :author,
