@@ -3,9 +3,7 @@ Napagram.Views.UserShow = Backbone.CompositeView.extend({
 
   initialize: function(){
     var posts = this.model.posts();
-    posts.each(function(post){
-      this.addUserPostIndexItemView(post)
-    })
+    this.renderPosts(posts);
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(posts, "add", this.addUserPostIndexItemView);
     this.listenTo(posts, "remove", this.removeUserPostIndexItemView);
@@ -17,13 +15,12 @@ Napagram.Views.UserShow = Backbone.CompositeView.extend({
     return this;
   },
 
-  // renderPosts: function(){
-  //   debugger
-  //   var self = this;
-  //   this.posts.each(function(post){
-  //     self.addUserPostIndexItemView(post)
-  //   })
-  // },
+  renderPosts: function(posts){
+    var self = this;
+    posts.each(function(post){
+      self.addUserPostIndexItemView(post)
+    });
+  },
 
   addUserPostIndexItemView: function(postIndexItem){
     var subview = new Napagram.Views.UserPostIndexItem({

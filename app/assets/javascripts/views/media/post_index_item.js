@@ -8,10 +8,8 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   },
 
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render);
     this.renderComments();
     this.listenTo(Napagram.Collections.pictures, "add", this.render)
-    this.listenTo(this.model.picture(), "reset add change:url sync", this.render);
     this.listenTo(this.model.comments(), "add", this.addCommentView);
     this.listenTo(this.model.like(), "change", this.render);
     this.listenTo(this.model.comments(), "remove", this.removeCommentView);
@@ -19,7 +17,7 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    console.log(this.model.escape("id") + ":" + this.model.picture());
+    // console.log(this.model.escape("id") + ":" + this.model.picture);
     this.$el.html(this.template({
                                   post: this.model,
                                   author: this.model.author(),

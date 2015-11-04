@@ -2,9 +2,9 @@ Napagram.Views.PostIndex = Backbone.CompositeView.extend({
   template: JST["media/post_index"],
 
   initialize: function(){
+    this.listenTo(this.collection, "add sync", this.render);
     this.listenTo(this.collection, "add", this.addPostIndexItemView);
     this.listenTo(this.collection, "remove", this.removePostIndexItemView);
-    this.listenTo(Napagram.Collections.pictures, "add", this.render);
     this.collection.each(this.addPostIndexItemView.bind(this));
   },
 

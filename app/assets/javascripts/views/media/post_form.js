@@ -57,23 +57,23 @@ Napagram.Views.PostForm= Backbone.CompositeView.extend({
     var description = this.$('.form-control').val();
     var self = this;
     this.picture.set({url: this.url, thumb_url: this.thumbURL, imageable_type: "Medium"})
-    this.model.set({description: description})
+    this.model.set({description: description});
     this.model.save({}, {
       success: function(){
         self.collection.add(self.model, {at: 0});
         self.picture.set({imageable_id: self.model.get("id")})
         self.picture.save({}, {
           success: function(){
-            self.model.set_picture(self.picture);
+            Napagram.Collections.pictures.add(self.picture)
           },
           error: function(){
-            console.log("error")
+            console.log ("error");
           }
         });
         Backbone.history.navigate("", {trigger: true});
       },
       error: function(){
-        console.log("error")
+        console.log("error");
       }
     });
 
