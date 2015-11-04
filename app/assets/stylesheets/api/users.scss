@@ -1,3 +1,119 @@
-// Place all the styles related to the api/users controller here.
+// Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-show {
+  width: 935px;
+  height: 178px;
+  margin: auto;
+  color: #4b4f54;
+  font-weight: 300;
+  position: relative;
+}
+
+.user-show h1 {
+  font-size: 36px;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+.user-show .follow-form button{
+  width: 105px;
+  height: 32px;
+  background: #66bc08;
+  border-radius: 3px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  float: left;
+  position: absolute;
+  top: 70px;
+  right: 270px;
+}
+
+.user-show div.crop {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 10px 70px;
+  float: left;
+}
+.quote{
+  margin-left: 5px;
+  display: inline;
+}
+.user-show div.crop img {
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.user-show h1 {
+  position: absolute;
+  top: 10px;
+  left: 300px;
+  padding: 0;
+}
+
+.user-show span  {
+  position: absolute;
+  top: 70px;
+  left: 300px;
+  width: 415px;
+  float: left;
+}
+
+.user-show span strong {
+  font-weight: bold;
+  float: left;
+}
+
+.user-show span div.bio {
+  margin-left: 5px;
+  max-width: 210px;
+  max-height: 30px;
+  overflow-y: scroll;
+  word-wrap: break-word;
+  float: left;
+}
+
+.user-show h3  {
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.user-show .followers {
+  position: absolute;
+  margin: 0 0 0 450px;
+  top: 210px;
+  float: left;
+}
+
+.user-show a.all-posts {
+  margin: 10px 180px -20px 0;
+  text-align: right;
+  display: block;
+  color: #4968bd;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+ul.posts div.img {
+  position: relative;
+  float: left;
+  display: flex;
+  width: 270px;
+  height: 270px;
+  margin: 15px;
+  border-radius: 0%;
+  justify-content: center;
+  align-items: center;
+}

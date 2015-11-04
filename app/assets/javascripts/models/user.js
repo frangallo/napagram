@@ -24,7 +24,7 @@ Napagram.Models.User = Backbone.Model.extend(
 
     picture: function (){
       if (!this._picture) {
-        this._picture = new Napagram.Models.Pictures([], { user: this });
+        this._picture = new Napagram.Models.Picture([], { user: this });
       }
 
       return this._picture;

@@ -1,7 +1,15 @@
-<h1><%= user.escape("username") %></h1>
-<p><%= user.escape("quote") %></p>
-<p>Followers: <%= user.escape("followers_count") %></p>
-<p>Following: <%= user.escape("following_count") %></p>
-<p>Posts: <%= user.escape("total_posts") %></p>
+<div class="user-show">
+  <div class="crop">
+    <img src="https://avatars3.githubusercontent.com/u/10661144?v=3&s=460" class="avatar">
+  </div>
+  <h1><%= user.escape('username') %></h1>
 
+  <span><strong><%= user.escape('username') %> </strong>
+    <div class="quote">
+       <%= user.escape("quote") %>
+    </div></span>
+
+  <h3><%= user.escape("total_posts") %> posts</h3>
+  <div class="follow-form"></div>
+</div>
 <div class="user-posts"></div>
