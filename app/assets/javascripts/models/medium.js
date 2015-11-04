@@ -22,6 +22,7 @@ Napagram.Models.Medium = Backbone.Model.extend(
       return this._picture;
     },
 
+
     author: function () {
       if (!this._author) {
         this._author = new Napagram.Models.User([], { post: this });

@@ -60,11 +60,11 @@ Napagram.Views.PostForm= Backbone.CompositeView.extend({
     this.model.set({description: description});
     this.model.save({}, {
       success: function(){
+        self.model.picture().set({url: self.url, thumb_url: self.thumbURL}, {parse:true})
         self.collection.add(self.model, {at: 0});
         self.picture.set({imageable_id: self.model.get("id")})
         self.picture.save({}, {
           success: function(){
-            Napagram.Collections.pictures.add(self.picture)
           },
           error: function(){
             console.log ("error");
@@ -80,3 +80,36 @@ Napagram.Views.PostForm= Backbone.CompositeView.extend({
   },
 
 });
+
+
+
+
+
+
+//
+// submitPost: function(event){
+//   event.preventDefault();
+//   var description = this.$('.form-control').val();
+//   var self = this;
+//   this.picture.set({url: this.url, thumb_url: this.thumbURL, imageable_type: "Medium"})
+//   this.model.set({description: description});
+//   this.model.save({}, {
+//     success: function(){
+//       self.collection.add(self.model, {at: 0});
+//       self.picture.set({imageable_id: self.model.get("id")})
+//       self.picture.save({}, {
+//         success: function(){
+//           self.model.setPicture({url: self.url, thumb_url: self.thumbURL})
+//         },
+//         error: function(){
+//           console.log ("error");
+//         }
+//       });
+//       Backbone.history.navigate("", {trigger: true});
+//     },
+//     error: function(){
+//       console.log("error");
+//     }
+//   });
+//
+// },
