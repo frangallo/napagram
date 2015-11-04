@@ -1,7 +1,9 @@
 <div class="img">
-    <!-- <div class="img-info">
-      ❤ <%= post.escape("num_likes") %>&emsp;
-      ✉ <%= total_comments %>
-    </div> -->
+  <div class="image-detail">
+    <div class="icons">
+      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <%= post.escape("num_likes") %>
+      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <%= total_comments %>
+    </div>
+  </div>
   <img src="<%= picture.get('thumb_url') %>">
 </div>

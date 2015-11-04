@@ -47,23 +47,7 @@
 
 .user-posts{
   width: 1000px;
-}
-
-.user-show .follow-form button{
-  width: 105px;
-  height: 32px;
-  background: #66bc08;
-  border-radius: 3px;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 400;
-  float: left;
-  position: absolute;
-  top: 70px;
-  right: 270px;
+  margin-top: 20px;
 }
 
 .user-show div.crop {
@@ -74,10 +58,12 @@
   margin: 10px 70px;
   float: left;
 }
+
 .quote{
   margin-left: 5px;
   display: inline;
 }
+
 .user-show div.crop img {
   padding: 0;
   height: 100%;
@@ -104,48 +90,23 @@
   float: left;
 }
 
-.user-show span div.bio {
-  margin-left: 5px;
-  max-width: 210px;
-  max-height: 30px;
-  overflow-y: scroll;
-  word-wrap: break-word;
-  float: left;
-}
-
-.user-show h3  {
+.image-detail{
+  opacity: 0;
   position: absolute;
-  top: 100px;
-  left: 300px;
-  text-align: left;
-  font-weight: 400;
-  font-size: 16px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }
 
-.user-show .followers {
-  position: absolute;
-  margin: 0 0 0 450px;
-  top: 210px;
-  float: left;
-}
-
-.user-show a.all-posts {
-  margin: 10px 180px -20px 0;
-  text-align: right;
-  display: block;
-  color: #4968bd;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-ul.posts div.img {
-  position: relative;
-  float: left;
-  display: flex;
-  width: 270px;
-  height: 270px;
-  margin: 15px;
-  border-radius: 0%;
-  justify-content: center;
-  align-items: center;
+.img img:hover .img-detail {
+  background: black;
+  opacity: 0.7;
+  text-align: center;
+  line-height: 270px;
+  vertical-align: middle;
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
 }
