@@ -1,4 +1,7 @@
-<div>
-  likes: <%= post.escape("num_likes") %>
-  comments <%= total_comments %>
+<div class="img">
+    <!-- <div class="img-info">
+      ❤ <%= post.escape("num_likes") %>&emsp;
+      ✉ <%= total_comments %>
+    </div> -->
+  <img src="<%= picture.get('thumb_url') %>">
 </div>

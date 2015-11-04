@@ -1,10 +1,13 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-profile{
+  width: 1000px;
+  margin: 0 auto;
+}
 .user-show {
-  width: 935px;
+  width: 749px;
   height: 178px;
-  margin: auto;
   color: #4b4f54;
   font-weight: 300;
   position: relative;
@@ -17,6 +20,16 @@
   margin: 0;
 }
 
+.img img {
+  height: 325px;
+  width: 325px;
+  padding: 11px;
+}
+
+.img {
+  float: left;
+  margin-left: 6px;
+}
 
 .profile-stats {
   position: absolute;
@@ -30,6 +43,10 @@
 .profile-stat {
   float: left;
   margin-right: 5px;
+}
+
+.user-posts{
+  width: 1000px;
 }
 
 .user-show .follow-form button{

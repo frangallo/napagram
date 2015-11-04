@@ -7,7 +7,8 @@ Napagram.Views.UserPostIndexItem = Backbone.View.extend({
 
   render: function(){
     this.$el.html(this.template({post: this.model,
-                                 total_comments: this.model.comments().length}));
+                                 total_comments: this.model.comments().length,
+                                 picture: this.model.picture()}));
     return this;
   },
 

@@ -1,19 +1,21 @@
-<div class="user-show">
-  <div class="crop">
-    <img src="https://avatars3.githubusercontent.com/u/10661144?v=3&s=460" class="avatar">
-  </div>
-  <h1><%= user.escape('username') %></h1>
-
-  <span><strong><%= user.escape('username') %> </strong>
-    <div class="quote">
-       <%= user.escape("quote") %>
+<div class="user-profile">
+  <div class="user-show">
+    <div class="crop">
+      <img src="https://avatars3.githubusercontent.com/u/10661144?v=3&s=460" class="avatar">
     </div>
-  </span>
-  
-  <ul class="profile-stats">
-    <li class="profile-stat"><strong><%= user.escape("total_posts") %></strong> Posts</li>
-    <li class="profile-stat"><strong><%= user.escape("followers_count") %></strong> Followers</li>
-    <li class="profile-stat"><strong><%= user.escape("following_count") %></strong> Following</li>
-  </ul>
+    <h1><%= user.escape('username') %></h1>
+
+    <span><strong><%= user.escape('username') %> </strong>
+      <div class="quote">
+         <%= user.escape("quote") %>
+      </div>
+    </span>
+
+    <ul class="profile-stats">
+      <li class="profile-stat"><strong><%= user.escape("total_posts") %></strong> Posts</li>
+      <li class="profile-stat"><strong><%= user.escape("followers_count") %></strong> Followers</li>
+      <li class="profile-stat"><strong><%= user.escape("following_count") %></strong> Following</li>
+    </ul>
+  </div>
+  <div class="user-posts"></div>
 </div>
-<div class="user-posts"></div>
