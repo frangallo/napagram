@@ -1,9 +1,10 @@
 <div class="img">
   <div class="image-detail">
     <div class="icons">
-      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <%= post.escape("num_likes") %>
-      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <%= total_comments %>
+      <h1>Hello</h1>
+      <span class="glyphicon glyphicon-heart"></span> <%= post.escape("num_likes") %>
+      <span class="glyphicon glyphicon-comment"></span> <%= total_comments %>
     </div>
   </div>
-  <img src="<%= picture.get('thumb_url') %>">
+  <img class="image-photo" src="<%= picture.get('thumb_url') %>">
 </div>
