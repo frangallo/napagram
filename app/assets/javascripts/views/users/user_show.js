@@ -7,6 +7,7 @@ Napagram.Views.UserShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(posts, "add", this.addUserPostIndexItemView);
     this.listenTo(posts, "remove", this.removeUserPostIndexItemView);
+    this.listenTo(this.model, "change:followers_count", this.render);
   },
 
   render: function(){

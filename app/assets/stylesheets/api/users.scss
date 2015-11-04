@@ -17,6 +17,21 @@
   margin: 0;
 }
 
+
+.profile-stats {
+  position: absolute;
+  bottom: 25px;
+  left:300px;
+  list-style-type: none;
+  padding: 0px;
+  font-size: 17px;
+  margin-top:10px;
+}
+.profile-stat {
+  float: left;
+  margin-right: 5px;
+}
+
 .user-show .follow-form button{
   width: 105px;
   height: 32px;

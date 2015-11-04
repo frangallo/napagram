@@ -7,9 +7,13 @@
   <span><strong><%= user.escape('username') %> </strong>
     <div class="quote">
        <%= user.escape("quote") %>
-    </div></span>
-
-  <h3><%= user.escape("total_posts") %> posts</h3>
-  <div class="follow-form"></div>
+    </div>
+  </span>
+  
+  <ul class="profile-stats">
+    <li class="profile-stat"><strong><%= user.escape("total_posts") %></strong> Posts</li>
+    <li class="profile-stat"><strong><%= user.escape("followers_count") %></strong> Followers</li>
+    <li class="profile-stat"><strong><%= user.escape("following_count") %></strong> Following</li>
+  </ul>
 </div>
 <div class="user-posts"></div>
