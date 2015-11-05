@@ -2,8 +2,8 @@ Napagram.Views.UserPostIndexItem = Backbone.View.extend({
   template: JST["users/user_post_index_item"],
 
   events: {
-    "mouseenter img" : "showStats",
-    "mouseleave img" : "removeStats"
+    "mouseenter .img" : "showStats",
+    "mouseleave .img" : "removeStats"
   },
 
   initialize: function(){
