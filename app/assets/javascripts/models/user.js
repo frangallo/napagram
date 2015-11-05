@@ -68,6 +68,11 @@ Napagram.Models.User = Backbone.Model.extend(
         delete response.follow;
       }
 
+      if (response.following_) {
+        this.following_().set(response.following_);
+        delete response.following_;
+      }
+
       return response;
     }
   })

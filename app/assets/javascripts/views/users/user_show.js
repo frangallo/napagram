@@ -1,6 +1,10 @@
 Napagram.Views.UserShow = Backbone.CompositeView.extend({
   template: JST["users/user_show"],
 
+  events: {
+    "click .following-btn" : 'toggleFollow',
+  },
+
   initialize: function(){
     var posts = this.model.posts();
     this.renderPosts(posts);
@@ -14,6 +18,10 @@ Napagram.Views.UserShow = Backbone.CompositeView.extend({
     this.$el.html(this.template({user: this.model}));
     this.attachSubviews();
     return this;
+  },
+
+  toggleFollow: function(event){
+    this.model.toggleFollow()
   },
 
   renderPosts: function(posts){

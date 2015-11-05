@@ -111,17 +111,25 @@
   -webkit-transform: translateX(-50%);
 }
 
-// .img img:hover .image-detail {
-//   display: block;
-//   width: 100px;
-//   height: 100px;
-//   z-index: 10;
-//   background-color: black;
-//   opacity: 0.7;
-//   text-align: center;
-//   line-height: 270px;
-//   vertical-align: middle;
-//   color: black;
-//   font-size: 20px;
-//   font-family: sans-serif;
-// }
+.user-show .btn-success {
+    margin-right: 32px;
+    float: right;
+    margin-top: 11px;
+    width: 104px;
+}
+
+.user-show .btn-default {
+    margin-right: 32px;
+    float: right;
+    margin-top: 11px;
+    background-color: red;
+    color:white;
+}
+
+.user-show .btn-default:hover {
+    margin-right: 32px;
+    float: right;
+    margin-top: 11px;
+    background-color: red;
+    color:white;
+}

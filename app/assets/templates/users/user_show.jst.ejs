@@ -11,6 +11,14 @@
       </div>
     </span>
 
+    <% if( user.escape("id") === Napagram.CURRENT_USER.id) {%>
+      <% console.log("hello") %>
+    <% } else if(user.following_().isNew()) { %>
+        <button type="button" class="btn btn-success following-btn">FOLLOW</button>
+      <%} else {%>
+        <button type="button" class="btn btn-default following-btn">UNFOLLOW</button>
+    <% } %>
+
     <ul class="profile-stats">
       <li class="profile-stat"><strong><%= user.escape("total_posts") %></strong> Posts</li>
       <li class="profile-stat"><strong><%= user.escape("followers_count") %></strong> Followers</li>

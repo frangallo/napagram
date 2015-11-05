@@ -1,6 +1,6 @@
 json.extract! @user,  :id, :username, :quote, :created_at
 json.picture @user.picture
-json.following? @following_hash[user.id]
+json.following_ @following_hash[user.id]
 
 json.followers @user.followers do |follower|
   json.extract! follower, :id, :username, :quote, :created_at

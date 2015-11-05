@@ -1,6 +1,7 @@
 class Api::FollowersController < ApplicationController
   def create
-    @follower = current_user.following.new(:followee_id)
+    @follower = Follower.new(follower_params)
+    @follower.follower_id = current_user.id
     if @follower.save
       render json: @follower
     else

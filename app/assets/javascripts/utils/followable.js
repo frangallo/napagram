@@ -1,14 +1,14 @@
 Napagram.Mixins.Followable = {
-  follow: function () {
-    if (!this._follow) {
-      this._follow = new Napagram.Models.Relationship;
+  following_: function () {
+    if (!this._following_) {
+      this._following_ = new Napagram.Models.Relationship;
     }
-    return this._follow;
+    return this._following_;
   },
 
   createFollow: function () {
-    this.follow().set(this.followableOptions.foreignKey, this.id);
-    this.follow().save({}, {
+    this.following_().set(this.followableOptions.foreignKey, this.id);
+    this.following_().save({}, {
       success: function () {
         this.updateFollowCount(1);
       }.bind(this)
@@ -16,16 +16,16 @@ Napagram.Mixins.Followable = {
   },
 
   destroyFollow: function () {
-    this.follow().destroy({
+    this.following_().destroy({
       success: function (model) {
         model.unset("id");
-        this.updateLikeCount(-1);
+        this.updateFollowCount(-1);
       }.bind(this)
     });
   },
 
   toggleFollow: function () {
-    if (this.follow().isNew()) {
+    if (this.following_().isNew()) {
       this.createFollow();
     } else {
       this.destroyFollow();
