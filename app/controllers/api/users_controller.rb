@@ -19,4 +19,8 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+  def search
+    @users = User.includes(:picture).all
+    render :search
+  end
 end
