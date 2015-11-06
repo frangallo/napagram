@@ -32,10 +32,6 @@
    height: auto;
  }
 
-.input-group-btn:last-child>.btn{
-  z-index: -1;
-}
-
 .ui-autocomplete-input {
   border: thin solid #337AB7;
 }
