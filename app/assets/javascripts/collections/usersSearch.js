@@ -1,5 +1,5 @@
-Napagram.Collections.Users = Backbone.Collection.extend({
-  url: 'api/users/',
+Napagram.Collections.UsersSearch = Backbone.Collection.extend({
+  url: 'api/users/search',
   model: Napagram.Models.User,
 
   getOrFetch: function(id){

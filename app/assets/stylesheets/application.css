@@ -31,3 +31,22 @@
    background-color: white;
    height: auto;
  }
+
+.input-group-btn:last-child>.btn{
+  z-index: -1;
+}
+
+.ui-autocomplete-input {
+  border: thin solid #337AB7;
+}
+
+.ui-autocomplete {
+z-index: 100000;
+}
+
+.ui-autocomplete-input:focus, .form-control:focus {
+  border: 2px outset #337AB7;
+  color: #337AB7;
+  box-shadow: 0 0 8px #337AB7;
+  z-index: 100
+}
