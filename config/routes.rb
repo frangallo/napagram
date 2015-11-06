@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get 'media/feed', to: 'media#feed'
+    get 'users/search', to: 'users#search'
     resources :comments, only: [:show, :index, :create, :destroy]
     resources :followers, only: [:show, :index, :create, :destroy]
     resources :media, only: [:show, :create, :destroy, :update]
