@@ -7,8 +7,6 @@ window.Napagram = {
 
   initialize: function() {
 
-    console.log("hello from backbone")
-
     var feedCollection = new Napagram.Collections.UserFeed();
     feedCollection.fetch();
     var usersCollection = new Napagram.Collections.Users();

@@ -12,7 +12,7 @@
     </span>
 
     <% if( user.escape("id") === Napagram.CURRENT_USER.id) {%>
-      <% console.log("hello") %>
+      <% %>
     <% } else if(user.following_().isNew()) { %>
         <button type="button" class="btn btn-success following-btn">FOLLOW</button>
       <%} else {%>

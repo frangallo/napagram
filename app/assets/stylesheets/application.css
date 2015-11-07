@@ -22,9 +22,9 @@
      list-style-type: none;
  }
 
- #srch-bar > li > img {
-   width: 30px;
-   height: 30px;
+ #srch-bar img {
+   width: 5px;
+   height: 5px;
    border-radius: 50%;
    margin-right: 10px;
  }
