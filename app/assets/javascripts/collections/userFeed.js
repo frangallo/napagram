@@ -19,3 +19,5 @@ Napagram.Collections.UserFeed = Backbone.Collection.extend({
   },
 
 });
+
+Napagram.Collections.feed = new Napagram.Collections.UserFeed();

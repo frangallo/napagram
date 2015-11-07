@@ -7,7 +7,7 @@ window.Napagram = {
 
   initialize: function() {
 
-    var feedCollection = new Napagram.Collections.UserFeed();
+    var feedCollection = Napagram.Collections.feed;
     feedCollection.fetch();
     var usersCollection = new Napagram.Collections.Users();
     usersCollection.fetch();

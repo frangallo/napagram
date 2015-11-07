@@ -22,6 +22,7 @@ Napagram.Views.UserShow = Backbone.CompositeView.extend({
 
   toggleFollow: function(event){
     this.model.toggleFollow()
+    Napagram.Collections.feed.fetch()
   },
 
   renderPosts: function(posts){
