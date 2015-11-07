@@ -6,4 +6,5 @@ json.array!(@users) do |user|
     json.url user.picture.url
     json.thumb_url user.picture.thumb_url
   end
+
 end
