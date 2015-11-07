@@ -26,7 +26,8 @@ pics = ["http://i.imgur.com/B9CLiIg.png",
         "http://i.imgur.com/GkFCmOl.png",
         "http://i.imgur.com/j54T6IZ.png",
         "http://i.imgur.com/He8b8YX.png"]
-        
+avatars = ["http://res.cloudinary.com/frankyg/image/upload/c_scale,w_302/v1446778243/bbevbh09dsksnmhjvjx3.jpg"]
+
 names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren", "laura", "megan"]
 ids = (1..10).to_a
 10.times do |x|
@@ -34,6 +35,10 @@ ids = (1..10).to_a
               session_token: names[x],
               password_digest: names[x],
               quote: names[x]})
+end
+
+10.times do |x|
+  Picture.create({url:avatars[0], thumb_url:avatars[0], imageable_id: x+1, imageable_type: "User" })
 end
 
 50.times do |x|

@@ -18,7 +18,7 @@ Napagram.Views.Header = Backbone.CompositeView.extend({
           console.log(user_obj.picture())
             return $('<li>')
               .data('user.autocomplete', user)
-              .append('<a><img style="width:35px; padding: 2px" src=' + user_obj.picture().get("url") + '>' + user.value + '<br></a>')
+              .append('<a><img style="width:35px; padding: 2px; margin-right: 6px" src=' + user_obj.picture().get("url") + '>' + user.value + '<br></a>')
               .appendTo(ul);
         };
       }
