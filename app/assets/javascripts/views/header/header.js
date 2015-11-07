@@ -13,7 +13,14 @@ Napagram.Views.Header = Backbone.CompositeView.extend({
         });
         $("#srch-bar").autocomplete({
           source: usernames
-        });
+        }).data('ui-autocomplete')._renderItem = function(ul, user) {
+          user_obj = self.users.where({username: user.value})[0];
+          console.log(user_obj.picture())
+            return $('<li>')
+              .data('user.autocomplete', user)
+              .append('<a><img src=' + user_obj.picture().get("url") + '>' + user.value + '<br></a>')
+              .appendTo(ul);
+        };
       }
     });
   },
