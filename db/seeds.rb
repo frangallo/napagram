@@ -29,7 +29,7 @@ pics = ["http://i.imgur.com/B9CLiIg.png",
 avatars = ["http://res.cloudinary.com/frankyg/image/upload/c_scale,w_302/v1446778243/bbevbh09dsksnmhjvjx3.jpg"]
 
 names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren", "laura", "megan"]
-ids = (1..10).to_a
+ids = (1..20).to_a
 20.times do |x|
   User.create({username: names[x],
               session_token: names[x],
