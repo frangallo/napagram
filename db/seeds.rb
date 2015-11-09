@@ -30,7 +30,7 @@ avatars = ["http://res.cloudinary.com/frankyg/image/upload/c_scale,w_302/v144677
 
 names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren", "laura", "megan"]
 ids = (1..10).to_a
-10.times do |x|
+20.times do |x|
   User.create({username: names[x],
               session_token: names[x],
               password_digest: names[x],
@@ -47,18 +47,18 @@ end
 end
 
 50.times do |x|
-    Picture.create({url:pics.sample, imageable_id: x+1, imageable_type: "Medium"})
+    pic = pics.sample
+    Picture.create({url:pic, thumb_url: pic,  imageable_id: x+1, imageable_type: "Medium"})
 end
 
 
-10.times do |x|
+100.times do |x|
   Like.create({media_id: ids.sample, user_id: ids.sample})
-  Picture.create({url: "www.google.com", imageable_id: x+1, imageable_type: "User"})
 end
 
 
 
-25.times do |x|
+30.times do |x|
   rand1 = rand(1..10)
   rand2 = rand(1..10)
   until rand2 != rand1
