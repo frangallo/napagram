@@ -44,12 +44,12 @@
 }
 
 .ui-autocomplete {
-z-index: 100000;
+  z-index: 100000;
 }
 
 .ui-autocomplete-input:focus, .form-control:focus {
   border: 2px outset #337AB7;
   color: #337AB7;
   box-shadow: 0 0 8px #337AB7;
-  z-index: 100
+  z-index: 100;
 }
