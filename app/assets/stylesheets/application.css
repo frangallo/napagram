@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  *= require bootstrap
+ *= require_tree ./fonts
  */
+
  body, button, input, textarea {
      font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
  }
