@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  *= require bootstrap
- *= require_tree ./fonts
  */
 
  body, button, input, textarea {
