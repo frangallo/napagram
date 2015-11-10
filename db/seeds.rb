@@ -28,37 +28,34 @@ pics = ["http://i.imgur.com/B9CLiIg.png",
         "http://i.imgur.com/He8b8YX.png"]
 avatars = ["http://res.cloudinary.com/frankyg/image/upload/c_scale,w_302/v1446778243/bbevbh09dsksnmhjvjx3.jpg"]
 
-names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren", "laura", "megan"]
+names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren",
+        "laura", "megan", "sophia", "jackson", "emma", "aiden", "liam", "lucas",
+        "olivia", "ava", "noah", "isabella", "mason", "mia", "ethan", "zoe",
+        "caden", "lily", "jacob", "emily", "logan", "madelyn"]
+
 ids = (1..20).to_a
-20.times do |x|
-  User.create({username: names[x],
+30.times do |x|
+  u = User.create({username: names[x],
               session_token: names[x],
               password_digest: names[x],
               quote: names[x]})
-end
-
-10.times do |x|
-  Picture.create({url:avatars[0], thumb_url:avatars[0], imageable_id: x+1, imageable_type: "User" })
+  Picture.create({url:avatars[0],
+                  thumb_url:avatars[0],
+                  imageable_id: (u.id),
+                  imageable_type: "User" })
 end
 
 50.times do |x|
-  Medium.create({description: names.sample,
+  m = Medium.create({description: names.sample,
                 author_id: ids.sample})
+  Picture.create({url:pic, thumb_url:pic,  imageable_id: (m.id), imageable_type: "Medium"})
 end
 
-50.times do |x|
-    pic = pics.sample
-    Picture.create({url:pic, thumb_url: pic,  imageable_id: x+1, imageable_type: "Medium"})
-end
-
-
-100.times do |x|
+300.times do |x|
   Like.create({media_id: ids.sample, user_id: ids.sample})
 end
 
-
-
-30.times do |x|
+50.times do |x|
   rand1 = rand(1..10)
   rand2 = rand(1..10)
   until rand2 != rand1
