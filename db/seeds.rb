@@ -46,6 +46,7 @@ ids = (1..20).to_a
 end
 
 50.times do |x|
+  pic = pics.sample
   m = Medium.create({description: names.sample,
                 author_id: ids.sample})
   Picture.create({url:pic, thumb_url:pic,  imageable_id: (m.id), imageable_type: "Medium"})
