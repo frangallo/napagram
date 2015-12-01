@@ -45,7 +45,7 @@ ids = (1..20).to_a
                   imageable_type: "User" })
 end
 
-50.times do |x|
+250.times do |x|
   pic = pics.sample
   m = Medium.create({description: names.sample,
                 author_id: ids.sample})
@@ -56,7 +56,7 @@ end
   Like.create({media_id: ids.sample, user_id: ids.sample})
 end
 
-50.times do |x|
+150.times do |x|
   rand1 = rand(1..10)
   rand2 = rand(1..10)
   until rand2 != rand1
