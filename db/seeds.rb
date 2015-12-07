@@ -33,7 +33,8 @@ names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren",
         "olivia", "ava", "noah", "isabella", "mason", "mia", "ethan", "zoe",
         "caden", "lily", "jacob", "emily", "logan", "madelyn"]
 
-ids = (1..20).to_a
+ids = (1..30).to_a
+posts = (1..250).to_a
 30.times do |x|
   u = User.create({username: names[x],
               session_token: names[x],
@@ -52,17 +53,18 @@ end
   Picture.create({url:pic, thumb_url:pic,  imageable_id: (m.id), imageable_type: "Medium"})
 end
 
-300.times do |x|
-  Like.create({media_id: ids.sample, user_id: ids.sample})
+800.times do |x|
+  Like.create({media_id: posts.sample, user_id: ids.sample})
 end
 
 150.times do |x|
-  rand1 = rand(1..10)
-  rand2 = rand(1..10)
+  rand1 = rand(1..30)
+  rand2 = rand(1..30)
+  rand3 = rand(1..250)
   until rand2 != rand1
     rand2 = rand(1..10)
   end
 
   Follower.create({follower_id: rand1, followee_id: rand2})
-  Comment.create({body: "Hello#{x}", author_id: rand1, media_id: rand2 })
+  Comment.create({body: "Hello#{x}", author_id: rand1, media_id: rand3 })
 end
