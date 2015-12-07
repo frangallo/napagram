@@ -11,5 +11,30 @@
   <label for="password">Password</label>
   <input type="password" name="user[password]" value="" id="password" >
   <br>
+  <div class="form-group">
+   <button class="btn btn-default photo-upload form-control" id="avatar-upload">Avatar Upload</button>
+  </div>
   <input type="submit" value="Sign Up!">
 </form>
+
+<script type="text/javascript" charset="utf-8">
+  $("#avatar-upload").on("click", function(event){
+    event.preventDefault();
+    var self = this;
+    var image = "";
+    var thumbURL = "";
+    var url = "";
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result){
+      var data = result[0];
+      var image = data.public_id + "." + data.format;
+      self.image = image;
+      self.thumbURL = "https://res.cloudinary.com/frankyg/image/upload/c_scale,w_300/" + image;
+      $('<input>').attr({
+        type: 'hidden',
+        name: 'user[avatar_url]',
+        value: self.thumbURL
+      }).appendTo('form');
+    });
+})
+
+</script>

@@ -15,7 +15,9 @@ Napagram.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    this.$el.html(this.template({user: this.model}));
+    this.$el.html(this.template({user: this.model,
+                                 picture: this.model.picture()
+                               }));
     this.attachSubviews();
     return this;
   },

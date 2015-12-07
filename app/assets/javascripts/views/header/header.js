@@ -15,7 +15,6 @@ Napagram.Views.Header = Backbone.CompositeView.extend({
           source: usernames
         }).data('ui-autocomplete')._renderItem = function(ul, user) {
           user_obj = self.users.where({username: user.value})[0];
-          console.log(user_obj.picture().get("url"))
             return $('<li>')
               .data('user.autocomplete', user)
               .append('<a><img style="width:35px; border-radius: 50%; padding: 2px; margin-right: 6px" src=' + user_obj.picture().get("url") + '>' + user.value + '<br></a>')
