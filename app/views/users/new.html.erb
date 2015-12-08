@@ -1,6 +1,5 @@
-<h1>Sign Up!</h1>
 
-<form action="<%= users_url %>" method="post">
+<!-- <form action="<%= users_url %>" method="post">
   <%= auth_token_input %>
   <label for="username">Username</label>
   <input type="text" name="user[username]" value="<%= @user.username %>" id="username" >
@@ -15,7 +14,51 @@
    <button class="btn btn-default photo-upload form-control" id="avatar-upload">Avatar Upload</button>
   </div>
   <input type="submit" value="Sign Up!">
-</form>
+</form> -->
+
+<div class="container">
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title">Sign Up!</div>
+            </div>
+
+            <div style="padding-top:30px" class="panel-body" >
+                <form action="<%= users_url %>" method="post" id="loginform" class="form-horizontal" role="form">
+
+                    <div style="margin-bottom: 2px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="login-username" type="text" class="form-control" name="user[username]" value="<%= @user.username %>" placeholder="Enter username">
+                    </div>
+
+                    <div style="margin-bottom: 10px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="login-password" type="password" class="form-control" name="user[password]" placeholder="Enter password">
+                    </div>
+
+                    <div style="margin-top:10px" class="form-group">
+                        <div class="col-sm-12 controls">
+                          <button class="btn btn-default photo-upload form-control" id="avatar-upload">Avatar Upload</button>
+                          <button type="submit" id="sign-up-button" name="go" class="btn btn-lg btn-primary btn-block">Sign Up!</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-12 control">
+                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                            Have an account?
+                        <a href="<%= new_session_url %> ">
+                            Login Here
+                        </a>
+                        </div>
+                      </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" charset="utf-8">
   $("#avatar-upload").on("click", function(event){
