@@ -26,8 +26,7 @@ pics = ["http://i.imgur.com/B9CLiIg.png",
         "http://i.imgur.com/GkFCmOl.png",
         "http://i.imgur.com/j54T6IZ.png",
         "http://i.imgur.com/He8b8YX.png"]
-avatars = ["http://res.cloudinary.com/frankyg/image/upload/c_scale,w_302/v1446778243/bbevbh09dsksnmhjvjx3.jpg"]
-
+        
 names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren",
         "laura", "megan", "sophia", "jackson", "emma", "aiden", "liam", "lucas",
         "olivia", "ava", "noah", "isabella", "mason", "mia", "ethan", "zoe",
