@@ -31,17 +31,19 @@ avatars = ["http://res.cloudinary.com/frankyg/image/upload/c_scale,w_302/v144677
 names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren",
         "laura", "megan", "sophia", "jackson", "emma", "aiden", "liam", "lucas",
         "olivia", "ava", "noah", "isabella", "mason", "mia", "ethan", "zoe",
-        "caden", "lily", "jacob", "emily", "logan", "madelyn"]
+        "caden", "lily", "jacob", "emily", "logan", "madelyn", "jake", "mitch",
+        "ed", "will", "tracie", "ehsan", "sid", "samantha", "sarah"]
 
 ids = (1..30).to_a
 posts = (1..250).to_a
 30.times do |x|
   u = User.create({username: names[x],
-              session_token: names[x],
-              password_digest: names[x],
+              session_token: Faker::Code.ean
+              password_digest: Faker::Internet.password(16, 16),
               quote: names[x]})
-  Picture.create({url:avatars[0],
-                  thumb_url:avatars[0],
+  pic1 = Faker::Avatar.image
+  Picture.create({url: pic1,
+                  thumb_url: pic1,
                   imageable_id: (u.id),
                   imageable_type: "User" })
 end
