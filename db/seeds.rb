@@ -26,7 +26,7 @@ pics = ["http://i.imgur.com/B9CLiIg.png",
         "http://i.imgur.com/GkFCmOl.png",
         "http://i.imgur.com/j54T6IZ.png",
         "http://i.imgur.com/He8b8YX.png"]
-        
+
 names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren",
         "laura", "megan", "sophia", "jackson", "emma", "aiden", "liam", "lucas",
         "olivia", "ava", "noah", "isabella", "mason", "mia", "ethan", "zoe",
@@ -37,10 +37,12 @@ ids = (1..30).to_a
 posts = (1..250).to_a
 30.times do |x|
   u = User.create({username: names[x],
-              session_token: Faker::Code.ean
+              session_token: Faker::Code.ean,
               password_digest: Faker::Internet.password(16, 16),
               quote: names[x]})
+
   pic1 = Faker::Avatar.image
+  
   Picture.create({url: pic1,
                   thumb_url: pic1,
                   imageable_id: (u.id),
