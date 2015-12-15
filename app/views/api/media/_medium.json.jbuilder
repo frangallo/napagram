@@ -1,6 +1,7 @@
 json.extract! post, :id, :location, :description, :author_id, :created_at
 json.picture post.picture
 json.author post.author
+json.profile_picture post.author.picture
 json.num_likes post.likes.length
 json.like likes_hash[post.id]
 json.likers post.likers do |liker|

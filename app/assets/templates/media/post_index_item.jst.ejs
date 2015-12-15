@@ -2,7 +2,7 @@
 
     <div class="panel-heading group">
       <div class="prof-pic">
-          <img src="https://avatars3.githubusercontent.com/u/10661144?v=3&s=460" alt="Profile Picture" />
+          <img src="<%= profile_picture.escape('thumb_url') %>" alt="Profile Picture" />
       </div>
       <div class="name-location">
         <a href="#users/<%= author.escape("id") %>"><%= author.escape("username") %></a><br>

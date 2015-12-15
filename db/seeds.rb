@@ -33,6 +33,8 @@ names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren",
         "caden", "lily", "jacob", "emily", "logan", "madelyn", "jake", "mitch",
         "ed", "will", "tracie", "ehsan", "sid", "samantha", "sarah"]
 
+comments = ["aww", "so cute!!", "love this", "adorable", "this is perfect", "i want one"]
+
 ids = (1..30).to_a
 posts = (1..250).to_a
 30.times do |x|
@@ -42,7 +44,7 @@ posts = (1..250).to_a
               quote: names[x]})
 
   pic1 = Faker::Avatar.image
-  
+
   Picture.create({url: pic1,
                   thumb_url: pic1,
                   imageable_id: (u.id),
@@ -69,5 +71,5 @@ end
   end
 
   Follower.create({follower_id: rand1, followee_id: rand2})
-  Comment.create({body: "Hello#{x}", author_id: rand1, media_id: rand3 })
+  Comment.create({body: comments.sample, author_id: rand1, media_id: rand3 })
 end

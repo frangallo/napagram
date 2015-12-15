@@ -20,7 +20,8 @@ Napagram.Views.PostIndexItem = Backbone.CompositeView.extend({
     this.$el.html(this.template({
                                   post: this.model,
                                   author: this.model.author(),
-                                  picture: this.model.picture()}));
+                                  picture: this.model.picture(),
+                                  profile_picture: this.model.profile_picture()}));
     this.attachSubviews();
     return this;
   },

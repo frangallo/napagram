@@ -22,6 +22,14 @@ Napagram.Models.Medium = Backbone.Model.extend(
       return this._picture;
     },
 
+    profile_picture: function () {
+      if (!this._profile_picture) {
+        this._profile_picture = new Napagram.Models.Picture([], { post: this });
+      }
+
+      return this._profile_picture;
+    },
+
 
     author: function () {
       if (!this._author) {
@@ -40,6 +48,11 @@ Napagram.Models.Medium = Backbone.Model.extend(
       if (response.picture) {
         this.picture().set(response.picture, { parse: true });
         delete response.picture;
+      }
+
+      if (response.profile_picture) {
+        this.profile_picture().set(response.profile_picture, { parse: true });
+        delete response.profile_picture;
       }
 
       if (response.author) {
