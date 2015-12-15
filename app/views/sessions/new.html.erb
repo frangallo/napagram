@@ -27,6 +27,12 @@
                           <button type="submit" id="sign-up-button" name="go" class="btn btn-lg btn-primary btn-block">Sign In!</button>
                         </div>
                     </div>
+                    <div style="margin-top:10px" class="form-group">
+                        <div class="col-sm-12 controls">
+                          <button id="guest-login" class="btn btn-lg btn-primary btn-block">Guest Login!</button>
+                        </div>
+                    </div>
+
 
                     <div class="form-group">
                       <div class="col-md-12 control">
@@ -46,9 +52,11 @@
 </div>
 
 <script type="text/javascript">
-  $('button#guest-login').click(function(){
+  $('#guest-login').click(function(e){
+    e.preventDefault();
+    console.log("test");
     $("input[name='user[username]']").val("Guest");
     $("input[name='user[password]']").val("guestguest");
-    $('#login-button').click()
+    $('#sign-up-button').click()
   })
 </script>
