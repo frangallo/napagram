@@ -64,7 +64,7 @@ end
   Picture.create({url:pic, thumb_url:pic,  imageable_id: (m.id), imageable_type: "Medium"})
 end
 
-15000.times do |x|
+5000.times do |x|
   Like.create({media_id: posts.sample, user_id: ids.sample})
 end
 
