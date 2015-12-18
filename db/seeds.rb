@@ -33,10 +33,13 @@ names = ["fran", "greg", "steve", "kerry", "doug", "larry", "amanda", "lauren",
         "caden", "lily", "jacob", "emily", "logan", "madelyn", "jake", "mitch",
         "ed", "will", "tracie", "ehsan", "sid", "samantha", "sarah"]
 
-comments = ["aww", "so cute!!", "love this", "adorable", "this is perfect", "i want one"]
+comments = ["aww", "so cute!!", "love this", "adorable", "this is perfect", "i want one", "omg!! soooo cute",
+            "where can I get one?!?", "this is amazing", "loveeeee", "it's so fluffy", "hahahaha", "give meeee",
+          "omfgggg", "Too cute!!!", "YASSSS", "bring me that!", "late night pick me up, so cute!", "extreme cuteness!",
+          "OMG! neeeed!", "oh my gawwwd", "this is exactly how I feel", "me right now", "I'm dying", ]
 
 ids = (1..30).to_a
-posts = (1..250).to_a
+posts = (1..500).to_a
 30.times do |x|
   u = User.create({username: names[x],
               session_token: Faker::Code.ean,
@@ -51,25 +54,30 @@ posts = (1..250).to_a
                   imageable_type: "User" })
 end
 
-250.times do |x|
+500.times do |x|
   pic = pics.sample
   m = Medium.create({description: names.sample,
                 author_id: ids.sample})
   Picture.create({url:pic, thumb_url:pic,  imageable_id: (m.id), imageable_type: "Medium"})
 end
 
-800.times do |x|
+15000.times do |x|
   Like.create({media_id: posts.sample, user_id: ids.sample})
 end
 
-150.times do |x|
+300.times do |x|
   rand1 = rand(1..30)
   rand2 = rand(1..30)
-  rand3 = rand(1..250)
   until rand2 != rand1
     rand2 = rand(1..10)
   end
 
   Follower.create({follower_id: rand1, followee_id: rand2})
-  Comment.create({body: comments.sample, author_id: rand1, media_id: rand3 })
+end
+
+5000.times do |x|
+  rand3 = rand(1..30)
+  rand4 = rand(1..500)
+
+  Comment.create({body: comments.sample, author_id: rand3, media_id: rand4 })
 end
