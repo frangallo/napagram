@@ -38,6 +38,9 @@ comments = ["aww", "so cute!!", "love this", "adorable", "this is perfect", "i w
           "omfgggg", "Too cute!!!", "YASSSS", "bring me that!", "late night pick me up, so cute!", "extreme cuteness!",
           "OMG! neeeed!", "oh my gawwwd", "this is exactly how I feel", "me right now", "I'm dying", ]
 
+description = ["sleepy time", "what I want to be doing", "can't hang", "too. much. eggnog.", "my world. you're just living in it",
+              "netflix and chill", "Is it Friday yet?", "#napagramzzz", "love my sunday naps", "I guess we're done here...", "this dude can't hang", "December has us like.....",
+              "Differing standards of nap comfort", "Morning snuggles on vacation", "and I'm out", "I'll just sleep right here", ""]
 ids = (1..30).to_a
 posts = (1..500).to_a
 30.times do |x|
