@@ -59,7 +59,7 @@ end
 
 500.times do |x|
   pic = pics.sample
-  m = Medium.create({description: names.sample,
+  m = Medium.create({description: description.sample,
                 author_id: ids.sample})
   Picture.create({url:pic, thumb_url:pic,  imageable_id: (m.id), imageable_type: "Medium"})
 end
