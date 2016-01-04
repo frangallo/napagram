@@ -78,7 +78,7 @@ end
   Follower.create({follower_id: rand1, followee_id: rand2})
 end
 
-5000.times do |x|
+3000.times do |x|
   rand3 = rand(1..30)
   rand4 = rand(1..500)
 
