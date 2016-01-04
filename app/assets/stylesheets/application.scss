@@ -33,9 +33,27 @@
 
  .panel-heading {
    background-color: white;
-   height: 60px;
+   height: 82px;
  }
+ 
+ .panel-info > .panel-heading {
+    background-color: white;
+    border-color: white;
+  }
 
+.panel-info{
+  opacity: 0.85;
+  border-color: white;
+}
+
+.panel-heading .login-logo{
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  border-radius: 0%;
+
+}
  div.panel-footer {
    background-color: white;
    height: auto;
