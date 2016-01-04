@@ -1,4 +1,4 @@
-# ZooZer
+# Napagram
 
 [Heroku link][heroku]
 
@@ -15,13 +15,6 @@ Napagram is a Instagram clone built on Rails and Backbone. Users can:
 - [X] Search for other users
 - [X] Like and comment on pictures
 
-
-## Design Docs
-* [View Wireframes][views]
-* [DB schema][schema]
-
-[views]: ./docs/views.md
-[schema]: ./docs/schema.md
 
 ## Implementation Timeline
 
@@ -40,14 +33,13 @@ inside a single Backbone app.
 I plan to use third-party libraries to add functionality to the post upload so users can change the filters for each photo.
 
 
-### Phase 4:Displaying Posts (~2 days)
+### Phase 4: Displaying Posts (~2 days)
 I plan to use third-party libraries to add functionality to the 'Posts' views in this phase. By the end of this phase users will be able to comment and like posts.
 
 
 ### Phase 5: Searching for Users (~1 day)
 Users will be able to search for other users by name. Using jQuery a search bar with display auto complete results based on the letters in the search bar.
 
-[Details][phase-five]
 
 ### To Do (TBD)
 - [ ] Heatmap showing the location of posts
