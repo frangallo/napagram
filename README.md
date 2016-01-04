@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://napagram.herokuapp.com
+[heroku]: http://www.napagram.com
 
 
 ## Minimum Viable Product
@@ -11,10 +11,20 @@ Napagram is a Instagram clone built on Rails and Backbone. Users can:
 - [X] Create accounts
 - [X] Create sessions (log in)
 - [X] Post Pictures & Change Picture Filters
+- [X] View a chronological feed of photos uploaded by other users
 - [X] Follow and unfollow users
 - [X] Search for other users
 - [X] Like and comment on pictures
 
+## Technologies
+
+* Ruby on Rails
+* JavaScript
+* Backbone.js
+* jQuery
+* AJAX
+* HTML
+* CSS
 
 ## Implementation Timeline
 
